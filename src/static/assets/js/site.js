@@ -328,6 +328,7 @@
       form.hidden = true;
       ok.classList.add('show');
       ok.focus();
+      if (ok.scrollIntoView) ok.scrollIntoView({ block: 'center', behavior: 'smooth' });
     }).catch(function () {
       ko.textContent = 'L’envoi n’a pas abouti. Appelez-nous au 06 65 30 14 90, nous organisons la visite avec vous.';
       ko.classList.add('show');

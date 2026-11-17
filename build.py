@@ -471,7 +471,7 @@ def c_form(_: str = "") -> str:
       <button class="btn" type="submit">Demander ma visite gratuite</button>
       <p class="state ko" id="ko" role="alert" tabindex="-1"></p>
     </form>
-    <p class="state ok" id="ok" role="status" tabindex="-1">Merci, votre demande est bien envoyée. Nous vous rappelons pour fixer la visite ensemble.</p>
+    <div class="state ok" id="ok" role="status" tabindex="-1"><span class="tick" aria-hidden="true">&#10003;</span><strong>Votre demande a bien été transmise</strong>Merci. Nous vous rappelons rapidement pour fixer la visite ensemble. Besoin d’aller plus vite ? Appelez-nous au <a href="tel:{TEL}">{e(TEL_TXT)}</a>.</div>
   </div>
 </div>'''
 
