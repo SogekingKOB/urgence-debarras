@@ -669,10 +669,8 @@ def business() -> dict:
             {"@type": "Offer", "itemOffered": {"@type": "Service", "name": n, "url": f"{SITE}{u}"}}
             for u, n, *_ in SITUATIONS]},
     }
-    rating = CFG.get("google_rating")
-    if rating:
-        biz["aggregateRating"] = {"@type": "AggregateRating", "ratingValue": rating["value"], "bestRating": "5",
-                                  "reviewCount": str(rating["count"])}
+    # Pas d'aggregateRating : Google ignore les notes qu'une entreprise locale déclare sur son propre site
+    # (avis « auto-attribués »). La note reste visible sur la page, les étoiles de recherche viennent de la fiche Google.
     if CFG.get("same_as"):
         biz["sameAs"] = CFG["same_as"]
     if CFG.get("founded"):
