@@ -9,6 +9,16 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return [].slice.call((r || document).querySelectorAll(s)); };
 
+  /* Avis qui défilent : chaque avis n'est écrit qu'une fois dans la page.
+     On ajoute ici la copie de chaque rangée (masquée aux lecteurs d'écran) qui permet la boucle. */
+  $$('.mq-track').forEach(function (track) {
+    [].slice.call(track.children).forEach(function (card) {
+      var copy = card.cloneNode(true);
+      copy.setAttribute('aria-hidden', 'true');
+      track.appendChild(copy);
+    });
+  });
+
   /* En-tête opaque au défilement, barre d'appel mobile */
   var topbar = $('#bar-top'), bar = $('#bar'), tick = false;
   var prog = $('#prog'), shot = $('.hero .shot');

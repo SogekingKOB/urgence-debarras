@@ -219,15 +219,15 @@ def c_avisall(_: str = "") -> str:
     revs = CFG.get("reviews_all", [])
     if not revs:
         return ""
-    def card(r: dict, hidden: bool) -> str:
-        aria = ' aria-hidden="true"' if hidden else ""
-        return (f'<figure class="rc"{aria}><p class="stars" aria-hidden="true">★★★★★</p>'
+    def card(r: dict) -> str:
+        return (f'<figure class="rc"><p class="stars" aria-hidden="true">★★★★★</p>'
                 f'<blockquote>«&nbsp;{e(r["text"])}&nbsp;»</blockquote><cite>{e(r["author"])} · avis Google</cite></figure>')
-    # Deux rangées qui défilent en sens inverse ; la copie de chaque rangée (masquée aux lecteurs d'écran) boucle le défilement
+    # Deux rangées qui défilent en sens inverse. Chaque avis n'est écrit qu'une fois dans le HTML :
+    # site.js ajoute la copie (masquée aux lecteurs d'écran) qui boucle le défilement.
     half = (len(revs) + 1) // 2
     rows = "".join(
         f'<div class="mq-row{" rev" if n else ""}"><div class="mq-track">'
-        f'{"".join(card(r, False) for r in part)}{"".join(card(r, True) for r in part)}</div></div>'
+        f'{"".join(card(r) for r in part)}</div></div>'
         for n, part in enumerate((revs[:half], revs[half:])))
     gr = CFG.get("google_rating")
     rating_note = (f'<span class="mq-note">Note de {str(gr["value"]).replace(".", ",")} sur 5 · {gr["count"]} avis Google</span>'
@@ -743,6 +743,9 @@ def strip_tags(s: str) -> str:
 def head(p: dict) -> str:
     url = f'{SITE}{p["path"]}'
     robots = "noindex, follow" if p.get("noindex") else "index, follow, max-image-preview:large"
+    # Pas d'adresse de référence pour les pages non indexées (404, merci) : elles n'ont pas d'URL publique propre
+    canonical = "" if p.get("noindex") else f'<link rel="canonical" href="{url}">\n'
+    og_url = "" if p.get("noindex") else f'<meta property="og:url" content="{url}">\n'
     shot = p.get("shot", "equipe-benne-debarras-brest")
     og_img = f"{SITE}/assets/img/{p.get('og', 'equipe-benne-debarras-brest')}.webp"
     preload = ""
@@ -758,8 +761,7 @@ def head(p: dict) -> str:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(p["title"])}</title>
 <meta name="description" content="{e(p["description"])}">
-<link rel="canonical" href="{url}">
-<meta name="robots" content="{robots}">
+{canonical}<meta name="robots" content="{robots}">
 <meta name="theme-color" content="#f7f5f0">
 <meta name="geo.region" content="FR-29">
 <meta name="geo.placename" content="Brest">
@@ -768,8 +770,7 @@ def head(p: dict) -> str:
 <meta property="og:site_name" content="{e(CFG["name"])}">
 <meta property="og:title" content="{e(p["title"])}">
 <meta property="og:description" content="{e(p["description"])}">
-<meta property="og:url" content="{url}">
-<meta property="og:image" content="{og_img}">
+{og_url}<meta property="og:image" content="{og_img}">
 <meta property="og:image:alt" content="L’équipe d’Urgences Débarras devant une benne chargée">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(p["title"])}">
