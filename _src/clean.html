@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  MAQUETTE DE REFONTE — page d'accueil Urgences Débarras Brest
+  À VALIDER AVANT MISE EN LIGNE :
+   1. Tarif : les 35 à 65 €/m³ affichés viennent de leur page Tarifs publique, à confirmer.
+   2. Mentions légales : raison sociale, SIRET et assurance à renseigner dans le pied de page.
+   3. Formulaire et envoi de photos : à brancher sur un vrai service.
+   4. Horaires : la fiche Google affiche « ouvert 24h/24 », ce qui est faux — à corriger côté Google.
+      Rien n'est affirmé sur les horaires dans cette page.
+   5. Zone d'intervention et majoration de déplacement : à confirmer.
+   6. Toutes les images sont leurs vraies photos de chantier.
+   7. Police et images embarquées pour la démo ; en production, les servir en fichiers séparés.
+-->
+<title>Débarras maison et appartement à Brest | Urgences Débarras</title>
+<meta name="description" content="Débarras et nettoyage de maisons, appartements, caves et locaux à Brest et dans le Finistère. De 35 à 65 €/m³, gratuit si la valeur des biens couvre la prestation. 5/5 sur Google.">
+<link rel="canonical" href="https://www.urgencesdebarras.fr/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="geo.region" content="FR-29">
+<meta name="geo.placename" content="Brest">
+<meta name="geo.position" content="48.400028;-4.4775977">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Urgences Débarras Brest">
+<meta property="og:title" content="Débarras maison et appartement à Brest | Urgences Débarras">
+<meta property="og:description" content="Débarras et nettoyage à Brest et dans le Finistère. De 35 à 65 €/m³, et gratuit si la valeur des biens couvre la prestation.">
+<meta property="og:url" content="https://www.urgencesdebarras.fr/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#15120f">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "additionalType": "https://www.wikidata.org/wiki/Q18177212",
+  "@id": "https://www.urgencesdebarras.fr/#entreprise",
+  "name": "Urgences Débarras Brest",
+  "description": "Débarras et nettoyage de maisons, appartements, caves, greniers, garages et locaux professionnels à Brest et dans le Finistère. Tri, dons aux associations, recyclage et déchetterie.",
+  "url": "https://www.urgencesdebarras.fr/",
+  "telephone": "+33665301490",
+  "email": "info@urgencesdebarras.fr",
+  "foundingDate": "2017",
+  "priceRange": "35-65 € / m³",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "40 rue Jules Ferry",
+    "postalCode": "29200",
+    "addressLocality": "Brest",
+    "addressRegion": "Bretagne",
+    "addressCountry": "FR"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 48.400028, "longitude": -4.4775977 },
+  "areaServed": [
+    "Brest","Guipavas","Plougastel-Daoulas","Le Relecq-Kerhuon","Guilers","Gouesnou","Plouzané",
+    "Saint-Renan","Plabennec","Landerneau","Lesneven","Lannilis","Ploudalmézeau","Landivisiau",
+    "Morlaix","Carhaix-Plouguer","Châteaulin","Quimper","Douarnenez","Concarneau","Quimperlé","Crozon"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Prestations de débarras",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Débarras de maison après succession ou décès" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Débarras d'appartement avant déménagement ou fin de bail" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Débarras avant une vente immobilière" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Débarras de logement très encombré" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Débarras de cave, garage, grenier et hangar" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Débarras de local professionnel et cessation d'activité" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nettoyage après débarras" } }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Le devis est-il gratuit ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui, le déplacement et le devis sont gratuits et sans engagement. Vous pouvez aussi envoyer des photos : dans beaucoup de cas elles suffisent à chiffrer." } },
+    { "@type": "Question", "name": "Comment le prix d'un débarras est-il calculé ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Au volume sorti, entre 35 et 65 € le m³. Le tarif varie selon la difficulté d'accès, la nature des déchets, et la valeur de ce qui peut être repris, qui vient en déduction." } },
+    { "@type": "Question", "name": "Un débarras peut-il être gratuit ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui. Si la valeur des meubles et objets récupérables couvre le coût de la prestation, vous ne payez rien. C'est fréquent dans les maisons anciennes restées meublées." } },
+    { "@type": "Question", "name": "Faut-il être présent pendant le débarras ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Non, à condition que l'accès au bien soit possible. Beaucoup de successions se règlent à distance, pour des familles qui habitent loin." } },
+    { "@type": "Question", "name": "Que deviennent les objets débarrassés ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ce qui peut resservir est repris ou donné à des associations, les métaux, bois, cartons et appareils électriques partent au recyclage, et le reste est déposé en déchetterie." } },
+    { "@type": "Question", "name": "Les lieux sont-ils nettoyés après le débarras ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui, c'est compris. Les lieux sont balayés et rendus propres, prêts à être visités ou rendus au propriétaire." } }
+  ]
+}
+</script>
+<style>
+@font-face{font-family:"Inter";src:url(/assets/fonts/f11d729bb0.woff2) format("woff2");font-weight:100 800;font-display:swap}
+:root{
+  /* noir chaud : le brun des charpentes et des tomettes, pas le noir bleuté */
+  --ob:#15120f;
+  --ob-2:#1e1a16;      /* champs de saisie, panneaux */
+  --ob-3:#2a2420;      /* survol */
+  --bone:#f4f0e9;      /* texte principal et boutons */
+  --fog:#9d9389;       /* texte secondaire */
+  --hair:rgba(244,240,233,.13);
+  --light:#efebe3;     /* la seule bande claire */
+  --signal:#f2742c;      /* orange chantier : liens, traits, chiffres. Jamais un fond de bouton */
+  --signal-d:#bd4f12;    /* la même sur la bande claire */
+  --f:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --pad:clamp(46px,7vw,96px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--f);font-size:17px;line-height:1.45;font-weight:400;color:var(--bone);background:var(--ob);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+@media(min-width:900px){.wrap{padding:0 32px}}
+h1,h2,h3{margin:0}
+h1{font-weight:400;font-size:clamp(34px,4.4vw,54px);line-height:1.05;letter-spacing:-.025em}
+h2{font-weight:400;font-size:clamp(26px,3.3vw,38px);line-height:1.2;letter-spacing:-.022em}
+h3{font-weight:600;font-size:20px;line-height:1.3;letter-spacing:-.005em}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.top nav a:hover,footer a:hover{color:var(--signal)}
+.sect{padding:var(--pad) 0;scroll-margin-top:64px}
+.lede{color:var(--fog);font-size:17px;max-width:62ch;margin-top:16px}
+.eyebrow{font-size:12px;color:var(--fog);margin-bottom:14px}
+.eyebrow::before{content:"";display:inline-block;width:24px;height:1px;background:var(--signal);vertical-align:middle;margin-right:10px;transform:scaleX(0);transform-origin:left;transition:transform .7s .12s cubic-bezier(.22,.7,.12,1)}
+.eyebrow.on::before,.no-anim .eyebrow::before{transform:none}
+.lnk{color:var(--signal);text-decoration:none}
+.lnk:hover{text-decoration:underline}
+.rule{height:1px;background:var(--hair);border:0;margin:0}
+
+/* Boutons : à plat, 4 px, l'action est en os */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border:0;border-radius:4px;font:700 15px/1 var(--f);text-decoration:none;cursor:pointer;white-space:nowrap;background:var(--bone);color:var(--ob);transition:background .15s}
+.btn:hover{background:#fff}
+.btn-g{background:transparent;color:var(--bone);box-shadow:inset 0 0 0 1px rgba(244,240,233,.3)}
+.btn-g:hover{background:rgba(244,240,233,.08)}
+.btn-d{background:var(--ob);color:var(--bone)}
+.btn-d:hover{background:#000}
+
+/* En-tête */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .25s}
+.top::before{content:"";position:absolute;inset:0;height:110px;background:linear-gradient(180deg,rgba(21,18,15,.8) 0%,rgba(21,18,15,.45) 55%,transparent 100%);pointer-events:none;transition:opacity .25s}
+.top.solid::before{opacity:0}
+.top .wrap{position:relative}
+.top.solid{background:var(--ob);border-bottom:1px solid var(--hair)}
+.top .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:17px}
+.brand img{height:28px;width:28px;border-radius:4px;object-fit:cover}
+.brand span{white-space:nowrap}
+.brand i{font-style:normal;display:none}
+@media(min-width:420px){.brand i{display:inline}}
+.top nav{display:none;margin-left:auto;gap:24px;font-size:14px;color:var(--fog)}
+.top nav a{text-decoration:none}
+.top nav a:hover{color:var(--bone)}
+.top .act{margin-left:auto;display:flex;align-items:center;gap:14px}
+.top .tel{font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap}
+.top .btn{min-height:38px;padding:0 16px;font-size:14px}
+.top .btn.only-l{display:none}
+@media(min-width:1000px){.top nav{display:flex}.top .act{margin-left:24px}.top .btn.only-l{display:inline-flex}}
+
+/* Hero : photo à droite, texte à gauche */
+.hero{position:relative;background:var(--ob);display:flex;flex-direction:column-reverse}
+.shot{position:relative;width:100%;aspect-ratio:1/1;background:var(--ob-2) url(/assets/img/735bd41535.webp) center 30%/cover no-repeat;filter:saturate(.88) contrast(1.04) brightness(.92)}
+.shot::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--ob) 2%,rgba(21,18,15,.45) 55%,rgba(21,18,15,.15) 100%)}
+.hero .txt{position:relative;padding:26px 0 var(--pad);max-width:55ch;opacity:0;animation:up .9s .1s cubic-bezier(.22,.7,.12,1) forwards}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero .sub{margin-top:20px;color:var(--fog);font-size:17px;max-width:52ch}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.note-rate{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:14px;color:var(--fog);text-decoration:none}
+.stars{color:var(--signal);letter-spacing:1px;font-size:13px}
+.note-rate b{color:var(--bone);font-weight:600}
+@media(max-width:899px){
+  .hero .txt{text-align:center;max-width:none}
+  .hero .sub{max-width:36ch;margin-left:auto;margin-right:auto}
+  .cta{display:grid;grid-template-columns:1fr;gap:10px;max-width:330px;margin-left:auto;margin-right:auto}
+  .note-rate{justify-content:center;width:100%}
+}
+@media(min-width:900px){
+  .hero{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:88vh}
+  .hero .pane{display:flex;align-items:center;padding-left:max(32px,calc(50vw - 568px));padding-right:40px}
+  .hero .txt{padding:120px 0 72px}
+  .shot{aspect-ratio:auto;height:100%;background-position:center 25%}
+  .shot::after{background:linear-gradient(90deg,var(--ob) 0%,rgba(21,18,15,.55) 22%,rgba(21,18,15,0) 58%)}
+}
+@media(min-width:1200px){.hero{grid-template-columns:1.06fr .94fr}}
+
+/* Repères : bande dense */
+.facts{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.facts ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr}
+.facts li{padding:22px 0;font-size:13px;color:var(--fog)}
+.facts li:nth-child(n+3){border-top:1px solid var(--hair)}
+.facts b{display:block;font-size:17px;font-weight:600;color:var(--bone);margin-bottom:4px}
+@media(min-width:800px){
+  .facts ul{grid-template-columns:repeat(4,1fr);gap:0}
+  .facts li{padding:26px 24px;border-left:1px solid var(--hair)}
+  .facts li:first-child{padding-left:0;border-left:0}
+  .facts li:nth-child(n+3){border-top:0}
+}
+
+/* Chantiers : la grille d'images porte la page */
+.gal{display:flex;gap:12px;margin:36px calc(50% - 50vw) 0;padding:0 20px 16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.gal::-webkit-scrollbar{display:none}
+.gal figure{flex:0 0 68vw;scroll-snap-align:center}
+.gal figure{margin:0;cursor:zoom-in}
+.gal img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:4px;transition:opacity .2s}
+.gal figure:hover img{opacity:.82}
+.swipe{font-size:13px;color:var(--fog);margin-top:18px}
+.gal figcaption{margin-top:12px;font-size:14px;font-weight:600}
+.gal figure:hover figcaption{color:var(--signal)}
+.gal small{display:block;font-size:14px;font-weight:400;color:var(--fog)}
+@media(min-width:640px){.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0 0;padding:0;overflow:visible}.gal figure{flex:none}.swipe{display:none}}
+@media(min-width:1000px){.gal{grid-template-columns:repeat(6,1fr)}}
+dialog.zoom{border:0;padding:0;background:transparent;max-width:94vw;max-height:92vh}
+dialog.zoom::backdrop{background:rgba(10,8,6,.94)}
+dialog.zoom img{max-width:94vw;max-height:88vh;border-radius:4px}
+
+/* La bande claire : le prix */
+.light{background:var(--light);color:var(--ob)}
+.light .lede{color:#55504a}
+.light .lnk{color:var(--signal-d)}
+.light .eyebrow{color:#6c665e}
+.light .eyebrow::before{background:var(--signal-d)}
+.light .tagp{color:var(--signal-d)}
+.ladder{display:grid;gap:0;margin-top:40px}
+.ladder article{padding:24px 0;border-top:1px solid rgba(21,18,15,.16)}
+.ladder .tagp{display:block;font-size:12px;font-weight:600;margin-bottom:10px}
+.ladder h3{margin-bottom:8px}
+.ladder p{color:#55504a;font-size:16px}
+.rate-line{margin-top:44px;padding-top:36px;border-top:1px solid rgba(21,18,15,.16);display:grid;gap:20px}
+.rate-line b{font-weight:400;font-size:clamp(36px,5.4vw,58px);line-height:1;letter-spacing:-.028em}
+.rate-line span{display:block;color:#55504a;font-size:16px;margin-top:12px;max-width:44ch}
+@media(min-width:860px){
+  .ladder{grid-template-columns:repeat(3,1fr);gap:28px}
+  .ladder article{padding-top:20px}
+  .rate-line{grid-template-columns:1fr auto;align-items:end}
+}
+
+/* Preuve */
+.proof{display:grid;gap:40px;margin-top:40px}
+.ba{margin:0;display:grid;gap:12px}
+.ba div{position:relative}
+.ba img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 58%;border-radius:4px}
+@media(min-width:620px){.ba{grid-template-columns:1fr 1fr;gap:8px}.ba img{aspect-ratio:2/3}}
+.ba .tag{position:absolute;left:10px;bottom:10px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:4px;background:rgba(21,18,15,.85);color:var(--bone)}
+.cap{font-size:14px;color:var(--fog);margin-top:12px}
+.avis{display:grid;gap:28px;align-content:start}
+.avis figure{margin:0;padding-top:24px;border-top:1px solid var(--hair)}
+.avis blockquote{margin:10px 0 0;font-size:18px;font-weight:400;line-height:1.5}
+.avis cite{display:block;font-style:normal;font-size:14px;color:var(--fog);margin-top:12px}
+@media(min-width:960px){.proof{grid-template-columns:1fr 1fr;gap:56px;align-items:start}}
+
+/* Situations : une liste, pas des cartes */
+.rows{display:grid;gap:0;margin-top:36px}
+.rows article{padding:26px 0;border-top:1px solid var(--hair)}
+.rows h3{margin-bottom:8px}
+.rows p{color:var(--fog);font-size:16px;max-width:52ch}
+.after-rows{margin-top:26px;padding-top:24px;border-top:1px solid var(--hair);font-size:16px}
+@media(min-width:860px){.rows{grid-template-columns:1fr 1fr;column-gap:48px}}
+
+/* Étapes */
+.steps{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:0;counter-reset:n}
+.steps li{counter-increment:n;padding:24px 0;border-top:1px solid var(--hair)}
+.steps li::before{content:"0" counter(n);display:block;font-size:12px;color:var(--fog);margin-bottom:12px}
+.steps p{color:var(--fog);margin-top:8px;font-size:16px}
+@media(min-width:860px){.steps{grid-template-columns:repeat(4,1fr);column-gap:32px}}
+
+/* Oui / non */
+.yn{display:grid;gap:32px;margin-top:36px}
+.yn h3{margin-bottom:16px}
+.yn ul{margin:0;padding:0;list-style:none;color:var(--fog);font-size:16px}
+.yn li{padding:10px 0;border-top:1px solid var(--hair)}
+.note{font-size:14px;color:var(--fog);margin-top:14px}
+@media(min-width:800px){.yn{grid-template-columns:1fr 1fr;gap:48px}}
+
+/* Devenir des objets, secteur */
+.cols{display:grid;gap:0;margin-top:36px}
+.cols div{padding:24px 0;border-top:1px solid var(--hair)}
+.cols b{display:block;font-weight:600;font-size:18px;margin-bottom:8px}
+.cols p,.cols dd{color:var(--fog);font-size:16px;margin:0}
+.cols dt{font-weight:600;font-size:18px;margin-bottom:8px}
+@media(min-width:800px){.cols{grid-template-columns:repeat(3,1fr);column-gap:40px}}
+
+/* FAQ */
+.faq{max-width:860px;margin-top:28px}
+details{border-top:1px solid var(--hair)}
+details:last-of-type{border-bottom:1px solid var(--hair)}
+summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;font-weight:600;font-size:17px;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:6px;top:28px;width:9px;height:9px;border-right:1.5px solid var(--fog);border-bottom:1.5px solid var(--fog);transform:rotate(45deg);transition:transform .2s}
+details[open] summary::after{transform:rotate(-135deg) translate(-3px,-3px)}
+details p{padding:0 0 24px;color:var(--fog);max-width:66ch;font-size:16px}
+
+/* Devis */
+.bigtel{display:inline-block;color:var(--signal);margin-top:24px;font-weight:500;font-size:clamp(32px,5vw,52px);letter-spacing:-.028em;text-decoration:none}
+.two-up{display:grid;gap:14px}
+@media(min-width:420px){.two-up{grid-template-columns:1fr 1fr}}
+.dev form{display:grid;gap:14px}
+label.f{display:grid;gap:7px;font-weight:600;font-size:14px}
+label.f small{font-weight:400;color:var(--fog)}
+.dev form input,.dev form select,.dev form textarea{font:400 16px var(--f);color:var(--bone);background:var(--ob);border:0;box-shadow:inset 0 0 0 1px var(--hair);border-radius:4px;padding:13px 14px;width:100%}
+.dev form input:focus,.dev form select:focus,.dev form textarea:focus{background:var(--ob-3);outline:0;box-shadow:inset 0 0 0 1px rgba(244,240,233,.3)}
+.dev form select:invalid{color:var(--fog)}
+.dev form textarea{min-height:92px;resize:vertical}
+.dev form input[type=file]{padding:10px 12px;font-size:14px;color:var(--fog)}
+.dev form input[type=file]::file-selector-button{background:var(--ob-3);color:var(--bone);border:0;border-radius:4px;padding:8px 12px;margin-right:12px;font:600 13px var(--f);cursor:pointer}
+.dev form input[type=file]::file-selector-button:hover{background:#3a332d}
+.dev form .btn{width:100%;margin-top:4px}
+.state{display:none;border-radius:4px;padding:14px;font-size:14px;line-height:1.45}
+.state.show{display:block}
+.state.ok{background:var(--ob);color:var(--fog);box-shadow:inset 0 0 0 1px var(--hair)}
+.state.ko{background:#3a1c18;color:#f3c6c0}
+
+/* Prise de rendez-vous */
+[hidden]{display:none!important}
+.book{display:grid;gap:36px;margin-top:40px}
+.book-side .meta{list-style:none;margin:0;padding:0}
+.book-side .meta li{padding:14px 0;border-top:1px solid var(--hair);font-size:14px;color:var(--fog)}
+.book-side .meta b{display:block;font-size:17px;font-weight:600;color:var(--bone);margin-bottom:3px}
+.meta-note{margin-top:24px;font-size:15px;color:var(--fog);line-height:1.6}
+.meta-note .lnk{font-size:20px;font-weight:500;letter-spacing:-.02em}
+.book-main{background:var(--ob-2);border-radius:4px;padding:22px}
+
+#stepSlot{display:grid;gap:26px}
+.cal-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.cal-top strong{font-size:17px;font-weight:600;text-transform:capitalize}
+.cal-nav{display:flex;gap:6px}
+.cal-nav button{width:36px;height:36px;border:0;border-radius:4px;background:var(--ob);color:var(--bone);font:400 20px/1 var(--f);cursor:pointer;box-shadow:inset 0 0 0 1px var(--hair)}
+.cal-nav button:hover:not(:disabled){background:var(--ob-3)}
+.cal-nav button:disabled{color:#4a433c;cursor:default}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.cal-grid .dow{font-size:11px;color:var(--fog);text-align:center;padding:4px 0 8px}
+.day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border:0;border-radius:4px;background:transparent;color:#4e473f;font:400 15px var(--f);cursor:default;padding:0}
+.day.free{background:var(--ob);color:var(--bone);box-shadow:inset 0 0 0 1px rgba(242,116,44,.5);cursor:pointer}
+.day.free:hover{background:var(--ob-3)}
+.day.sel,.day.free.sel:hover{background:var(--signal);color:#15120f;font-weight:600;box-shadow:none}
+.cal-key{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:12.5px;color:var(--fog)}
+.cal-key i{width:14px;height:14px;border-radius:3px;box-shadow:inset 0 0 0 1px rgba(242,116,44,.5);background:var(--ob)}
+.slot-title{font-size:15px;font-weight:600;margin-bottom:12px}
+.slot-title span{font-weight:400;color:var(--fog)}
+.slots{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;align-content:start}
+.slot{padding:13px 8px;border:0;border-radius:4px;background:var(--ob);color:var(--bone);box-shadow:inset 0 0 0 1px var(--hair);font:500 15px var(--f);cursor:pointer;transition:background .15s,box-shadow .15s}
+.slot:hover{background:var(--ob-3);box-shadow:inset 0 0 0 1px rgba(242,116,44,.5)}
+.slots .empty{grid-column:1/-1;font-size:14px;color:var(--fog);line-height:1.5}
+
+.chosen{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--hair);font-size:17px;font-weight:600}
+.chosen span::first-letter{text-transform:uppercase}
+.chosen button{background:none;border:0;padding:0;font:400 15px var(--f);cursor:pointer}
+
+.done-mark{font-size:13px;color:var(--signal);margin-bottom:10px}
+.done-slot{font-size:clamp(22px,2.4vw,30px);font-weight:500;letter-spacing:-.02em;line-height:1.25}
+.done-slot::first-letter{text-transform:uppercase}
+.done-recap{margin:22px 0 0;display:grid;gap:0}
+.done-recap div{display:flex;flex-wrap:wrap;gap:4px 14px;padding:11px 0;border-top:1px solid var(--hair);font-size:15px}
+.done-recap dt{color:var(--fog);min-width:92px}
+.done-recap dd{margin:0}
+#stepDone .state{margin-top:22px}
+#stepDone .btn{margin-top:16px}
+
+@media(min-width:620px){
+  .book-main{padding:28px}
+  #stepSlot{grid-template-columns:1.25fr .75fr;gap:30px}
+  .slots{grid-template-columns:1fr}
+  .book-side .meta li:first-child{border-top:0;padding-top:0}
+}
+@media(min-width:1000px){
+  .book{grid-template-columns:.8fr 2fr;gap:56px;align-items:start}
+  .book-side{position:sticky;top:80px}
+}
+
+/* Pied de page */
+footer{border-top:1px solid var(--hair);padding:var(--pad) 0 110px;font-size:15px;color:var(--fog)}
+footer a{text-decoration:none}
+footer a:hover{color:var(--bone)}
+.foot{display:grid;gap:32px}
+.foot img{height:40px;width:40px;border-radius:4px;margin-bottom:14px}
+footer h2{font-size:12px;font-weight:400;color:var(--fog);margin-bottom:14px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+footer ul a{color:var(--bone);font-size:15px}
+.legal{margin-top:40px;padding-top:20px;border-top:1px solid var(--hair);font-size:12px;color:#6d655c;line-height:1.5}
+@media(min-width:800px){.foot{grid-template-columns:1.6fr 1fr 1fr}footer{padding-bottom:var(--pad)}}
+
+/* Barre mobile */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--ob);border-top:1px solid var(--hair);transform:translateY(110%);transition:transform .3s cubic-bezier(.22,.7,.12,1)}
+.bar.on{transform:none}
+@media(min-width:800px){.bar{display:none}}
+
+[data-rv]{opacity:0;transform:translateY(10px);transition:opacity .55s ease,transform .65s cubic-bezier(.22,.7,.12,1)}
+[data-rv].on,.no-anim [data-rv]{opacity:1;transform:none}
+.gal figure{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .55s cubic-bezier(.22,.7,.12,1)}
+.gal figure.on,.no-anim .gal figure{opacity:1;transform:none}
+.no-anim [data-rv],.no-anim .gal figure{transition:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero .txt{animation:none;opacity:1}[data-rv],.gal figure{opacity:1;transform:none;transition:none}.eyebrow::before{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="top" id="bar-top">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="/assets/img/85579ea595.webp" width="28" height="28" alt=""> <span>Urgences Débarras<i>&nbsp;Brest</i></span></a>
+    <nav>
+      <a href="#chantiers">Chantiers</a>
+      <a href="#prix">Tarifs</a>
+      <a href="#situations">Situations</a>
+      <a href="#faq">Questions</a>
+    </nav>
+    <div class="act">
+      <a class="tel" href="tel:+33665301490">06 65 30 14 90</a>
+      <a class="btn only-l" href="#devis">Prendre RDV</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="pane">
+    <div class="wrap txt">
+      <h1>Une maison à vider.<br>On s'occupe de tout.</h1>
+      <p class="sub">Débarras et nettoyage de maisons, appartements, caves, garages et locaux à Brest et dans le Finistère. Et selon ce qu'il y a à l'intérieur, la prestation peut ne rien vous coûter.</p>
+      <div class="cta">
+        <a class="btn" href="#devis">Prendre rendez-vous</a>
+        <a class="btn btn-g" href="tel:+33665301490">06 65 30 14 90</a>
+      </div>
+      <a class="note-rate" href="#avis"><span class="stars" aria-hidden="true">★★★★★</span><b>5,0</b> sur 14 avis Google</a>
+    </div>
+  </div>
+  <div class="shot" role="img" aria-label="L'équipe d'Urgences Débarras devant une benne chargée"></div>
+</section>
+
+<section class="facts" aria-label="Repères">
+  <div class="wrap">
+    <ul>
+      <li><b>5,0 sur 5</b>14 avis Google, tous à cinq étoiles</li>
+      <li><b>Depuis 2017</b>Dans le Finistère</li>
+      <li><b>Vidé et nettoyé</b>Les lieux sont rendus propres</li>
+      <li><b>Dons et recyclage</b>Ce qui peut resservir ne part pas en benne</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sect" id="chantiers">
+  <div class="wrap">
+    <p class="eyebrow" data-rv>Nos chantiers</p>
+    <h2 data-rv style="transition-delay:.07s">Ces photos sont les nôtres. Aucune image de catalogue.</h2>
+    <p class="swipe">Faites glisser pour voir les douze chantiers.</p>
+    <div class="gal">
+      <figure><img src="/assets/img/40ea424ab4.webp" alt="Amas de matériaux sous un hangar" loading="lazy"><figcaption>Hangar à évacuer<small>Matériaux et encombrants</small></figcaption></figure>
+      <figure><img src="/assets/img/1499338d96.webp" alt="Benne remplie de bois et de meubles démontés" loading="lazy"><figcaption>Bois et meubles<small>Benne complète</small></figcaption></figure>
+      <figure><img src="/assets/img/f4549e4cd9.webp" alt="Pièce encombrée de cartons et de meubles" loading="lazy"><figcaption>Cartons et meubles<small>Avant tri</small></figcaption></figure>
+      <figure><img src="/assets/img/0066f47647.webp" alt="Évacuation d'objets par l'escalier" loading="lazy"><figcaption>Sortie par l'escalier<small>Étage sans ascenseur</small></figcaption></figure>
+      <figure><img src="/assets/img/2a455938d7.webp" alt="Pièce jonchée de plâtre et de gravats" loading="lazy"><figcaption>Gravats et plâtre<small>Après travaux</small></figcaption></figure>
+      <figure><img src="/assets/img/831ee329a1.webp" alt="Grande pièce en pierre vidée et balayée" loading="lazy"><figcaption>Pièce rendue propre<small>Fin de chantier</small></figcaption></figure>
+      <figure><img src="/assets/img/8ea3a9133d.webp" alt="Garage encombré de caisses et d'objets" loading="lazy"><figcaption>Garage encombré<small>Avant débarras</small></figcaption></figure>
+      <figure><img src="/assets/img/6f5ecd89da.webp" alt="Chargement de panneaux dans une benne" loading="lazy"><figcaption>Chargement<small>Panneaux et bois</small></figcaption></figure>
+      <figure><img src="/assets/img/a1ec6baa60.webp" alt="Grange entièrement vidée" loading="lazy"><figcaption>Grange vidée<small>Fin de chantier</small></figcaption></figure>
+      <figure><img src="/assets/img/4e8c017dbd.webp" alt="Pièce vide au sol en tomettes" loading="lazy"><figcaption>Sol dégagé<small>Après nettoyage</small></figcaption></figure>
+      <figure><img src="/assets/img/545c70d49b.webp" alt="Matériaux et plâtre à évacuer" loading="lazy"><figcaption>Matériaux<small>À évacuer</small></figcaption></figure>
+      <figure><img src="/assets/img/42cb45385f.webp" alt="Fourgon chargé de meubles débarrassés" loading="lazy"><figcaption>Fourgon chargé<small>Petits volumes</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sect light" id="prix">
+  <div class="wrap">
+    <p class="eyebrow" data-rv>Tarifs</p>
+    <h2 data-rv style="transition-delay:.07s">Un débarras peut ne rien coûter</h2>
+    <p class="lede" data-rv style="transition-delay:.12s">Tout dépend de ce qu'il y a à sortir. Meubles, électroménager, outillage : ce qui a de la valeur vient en déduction de la prestation, et parfois la couvre entièrement.</p>
+    <div class="ladder">
+      <article>
+        <span class="tagp">Gratuit</span>
+        <h3>La valeur couvre la prestation</h3>
+        <p>Si ce qu'il y a à débarrasser vaut autant ou plus que le travail à faire, vous ne payez rien.</p>
+      </article>
+      <article>
+        <span class="tagp">Réduit</span>
+        <h3>La valeur vient en déduction</h3>
+        <p>Les meubles, la vaisselle et les objets revendables sont estimés, et leur valeur est retirée du montant.</p>
+      </article>
+      <article>
+        <span class="tagp">Juste</span>
+        <h3>Rien à déduire</h3>
+        <p>Quand il n'y a rien à récupérer, le tarif reste calculé au volume réellement sorti, sans supplément caché.</p>
+      </article>
+    </div>
+    <div class="rate-line">
+      <div><b>35 à 65 € le m³</b><span>Le prix dépend du volume sorti et de la difficulté d'accès.</span></div>
+      <a class="btn btn-d" href="#devis">Prendre rendez-vous</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="sect" id="avis">
+  <div class="wrap">
+    <p class="eyebrow" data-rv>Avant, après</p>
+    <h2 data-rv style="transition-delay:.07s">Ce qu'on laisse derrière nous</h2>
+    <div class="proof">
+      <div>
+        <figure class="ba">
+          <div><img src="/assets/img/5741ac97c2.webp" alt="L'abri de jardin encombré avant l'intervention"><span class="tag">Avant</span></div>
+          <div><img src="/assets/img/369a0c8fa4.webp" alt="Le même abri entièrement vidé et balayé"><span class="tag">Après</span></div>
+        </figure>
+        <p class="cap">Un abri vidé puis balayé. Deux photos du même chantier, prises au même endroit.</p>
+      </div>
+      <div class="avis">
+        <figure>
+          <p class="stars" aria-label="5 sur 5">★★★★★</p>
+          <blockquote>«&nbsp;L'équipe a vidé entièrement un garage, une cave et un abri de jardin en un temps record. Travail soigné, ponctuel et professionnel. Ils ont tout emporté en laissant les endroits propres.&nbsp;»</blockquote>
+          <cite>Laure R. · avis Google</cite>
+        </figure>
+        <figure>
+          <p class="stars" aria-label="5 sur 5">★★★★★</p>
+          <blockquote>«&nbsp;Devis rapide et intervention rapide, prix très correct. Je n'hésiterai pas à refaire appel à cette entreprise.&nbsp;»</blockquote>
+          <cite>David G. · avis Google</cite>
+        </figure>
+        <figure>
+          <p class="stars" aria-label="5 sur 5">★★★★★</p>
+          <blockquote>«&nbsp;Maison bien nettoyée après le déménagement. Équipe très sympa.&nbsp;»</blockquote>
+          <cite>Erwan T. · avis Google</cite>
+        </figure>
+        <a class="lnk" href="https://www.google.com/maps/search/?api=1&query=Urgences+D%C3%A9barras+Brest" rel="noopener">Lire les 14 avis sur Google</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sect" id="situations">
+  <div class="wrap">
+    <p class="eyebrow" data-rv>Situations</p>
+    <h2 data-rv style="transition-delay:.07s">On n'appelle pas une entreprise de débarras par hasard</h2>
+    <p class="lede" data-rv style="transition-delay:.12s">Chaque situation a ses contraintes, ses délais et ses précautions.</p>
+    <div class="rows">
+      <article><h3>Succession, après un décès</h3><p>Vider la maison d'un proche, trier ce qui se garde, et laisser les lieux prêts pour le notaire ou la vente.</p></article>
+      <article><h3>Déménagement, fin de bail</h3><p>Ce qui ne part pas avec vous, on l'emporte. Logement rendu vide et propre dans les délais.</p></article>
+      <article><h3>Avant une vente</h3><p>Un bien vide se visite mieux et se vend mieux. Intervention calée sur vos dates de visite.</p></article>
+      <article><h3>Logement très encombré</h3><p>Accumulation importante, accès difficile. On intervient sans jugement et en discrétion.</p></article>
+      <article><h3>Cave, garage, grenier</h3><p>Petits volumes, encombrants, gravats. Le genre de chantier qu'on règle en une demi-journée.</p></article>
+      <article><h3>Local professionnel</h3><p>Cessation d'activité, liquidation, changement de locataire. Facture et délais tenus.</p></article>
+    </div>
+    <p class="after-rows"><a class="lnk" href="#devis">Prendre rendez-vous pour votre situation</a></p>
+  </div>
+</section>
+
+<section class="sect">
+  <div class="wrap">
+    <p class="eyebrow" data-rv>Déroulement</p>
+    <h2 data-rv style="transition-delay:.07s">Comment ça se passe</h2>
+    <ol class="steps">
+      <li><h3>Vous nous décrivez</h3><p>Par téléphone, ou en envoyant trois photos. La commune, le type de bien, ce qu'il y a dedans.</p></li>
+      <li><h3>On estime</h3><p>Devis gratuit, sur photos ou après une visite sur place selon le volume.</p></li>
+      <li><h3>On vide</h3><p>Tri au fur et à mesure : ce qui se donne, ce qui se recycle, ce qui part en déchetterie.</p></li>
+      <li><h3>On nettoie</h3><p>Les lieux sont balayés et rendus propres. Vous n'avez rien à finir derrière nous.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sect">
+  <div class="wrap">
+    <p class="eyebrow" data-rv>Ce qu'on emporte</p>
+    <h2 data-rv style="transition-delay:.07s">Presque tout. Et le reste, on vous le dit avant.</h2>
+    <div class="yn">
+      <div class="ok">
+        <h3>Oui, sans problème</h3>
+        <ul>
+          <li>Meubles, literie, armoires, électroménager</li>
+          <li>Vaisselle, linge, livres, bibelots</li>
+          <li>Cartons, papiers, jouets, vêtements</li>
+          <li>Outillage, matériel informatique et électrique</li>
+          <li>Encombrants, gravats, matériaux de chantier</li>
+          <li>Déchets verts et ferraille</li>
+        </ul>
+      </div>
+      <div class="no">
+        <h3>À nous signaler avant</h3>
+        <ul>
+          <li>Produits chimiques, peintures, solvants</li>
+          <li>Bouteilles de gaz et extincteurs</li>
+          <li>Amiante ou matériaux suspects</li>
+          <li>Cuves à fioul</li>
+          <li>Objets de grande valeur ou papiers de famille à retrouver</li>
+        </ul>
+        <p class="note">Rien d'insurmontable : il faut simplement le prévoir au devis, car l'évacuation suit des filières particulières.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sect">
+  <div class="wrap">
+    <p class="eyebrow" data-rv>Après le chantier</p>
+    <h2 data-rv style="transition-delay:.07s">Ce que deviennent vos affaires</h2>
+    <p class="lede" data-rv style="transition-delay:.12s">Tout ne finit pas en benne. C'est aussi ce qui permet de faire baisser la facture.</p>
+    <div class="cols">
+      <div><b>Ce qui peut resservir</b><p>Meubles, électroménager et objets en état sont repris ou donnés à des associations.</p></div>
+      <div><b>Ce qui se recycle</b><p>Métaux, bois, cartons et appareils électriques partent dans les filières de recyclage.</p></div>
+      <div><b>Le reste</b><p>Déposé en déchetterie dans les règles, avec le tri qui va avec.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sect" id="secteur">
+  <div class="wrap">
+    <p class="eyebrow" data-rv>Secteur</p>
+    <h2 data-rv style="transition-delay:.07s">Où nous intervenons</h2>
+    <p class="lede" data-rv style="transition-delay:.12s">Basés à Brest, nous intervenons dans tout le Finistère.</p>
+    <dl class="cols">
+      <div><dt>Pays de Brest</dt><dd>Brest, Guipavas, Plougastel-Daoulas, Le Relecq-Kerhuon, Guilers, Gouesnou, Plouzané, Saint-Renan, Plabennec, Landerneau.</dd></div>
+      <div><dt>Nord et centre Finistère</dt><dd>Lesneven, Lannilis, Ploudalmézeau, Landivisiau, Morlaix, Carhaix-Plouguer, Châteaulin.</dd></div>
+      <div><dt>Sud Finistère</dt><dd>Quimper, Douarnenez, Concarneau, Quimperlé, Pont-l'Abbé, Crozon.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="sect" id="faq">
+  <div class="wrap">
+    <p class="eyebrow" data-rv>Questions fréquentes</p>
+    <h2 data-rv style="transition-delay:.07s">Ce qu'on nous demande le plus souvent</h2>
+    <div class="faq">
+      <details open><summary>Le devis est-il vraiment gratuit ?</summary><p>Oui, le déplacement et le devis sont gratuits et sans engagement. Vous pouvez aussi nous envoyer des photos : dans beaucoup de cas elles suffisent à chiffrer.</p></details>
+      <details><summary>Comment le prix est-il calculé ?</summary><p>Au volume sorti, entre 35 et 65 € le m³. Ce qui fait varier le tarif : la difficulté d'accès, la nature des déchets, et la valeur de ce qui peut être repris, qui vient en déduction.</p></details>
+      <details><summary>Le débarras peut-il être gratuit ?</summary><p>Oui. Si la valeur des meubles et objets récupérables couvre le coût de la prestation, vous ne payez rien. C'est fréquent dans les maisons anciennes restées meublées.</p></details>
+      <details><summary>Faut-il être présent pendant l'intervention ?</summary><p>Non, à condition qu'on puisse accéder au bien. Beaucoup de successions se règlent à distance, pour des familles qui habitent loin.</p></details>
+      <details><summary>En combien de temps intervenez-vous ?</summary><p>Cela dépend du volume et du planning en cours. Appelez-nous : on vous dit tout de suite ce qu'on peut faire, et on s'adapte aux dates de visite ou de remise des clés.</p></details>
+      <details><summary>Et si je veux garder certaines choses ?</summary><p>Vous nous dites ce qui reste. On met de côté papiers, souvenirs et objets personnels avant d'évacuer.</p></details>
+      <details><summary>Est-ce que vous nettoyez après ?</summary><p>Oui, c'est compris. Les lieux sont balayés et rendus propres, prêts à être visités ou rendus au propriétaire.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sect dev" id="devis">
+  <div class="wrap">
+    <p class="eyebrow" data-rv>Rendez-vous</p>
+    <h2 data-rv style="transition-delay:.07s">Choisissez votre créneau</h2>
+    <p class="lede" data-rv style="transition-delay:.12s">On passe voir sur place, on vous remet le devis. La visite est gratuite et ne vous engage à rien.</p>
+
+    <div class="book">
+      <aside class="book-side">
+        <ul class="meta">
+          <li><b>Visite sur place</b>Un de nous deux se déplace</li>
+          <li><b>30 à 45 minutes</b>Selon le volume à voir</li>
+          <li><b>Gratuit</b>Devis remis sans engagement</li>
+          <li><b>Finistère</b>Pays de Brest et alentours</li>
+        </ul>
+        <p class="meta-note">Vous préférez parler de vive voix ?<br><a class="lnk" href="tel:+33665301490">06 65 30 14 90</a></p>
+      </aside>
+
+      <div class="book-main">
+        <!-- étape 1 : le créneau -->
+        <div id="stepSlot">
+          <div class="cal">
+            <div class="cal-top">
+              <strong id="calMonth">—</strong>
+              <span class="cal-nav">
+                <button type="button" id="prevM" aria-label="Mois précédent">‹</button>
+                <button type="button" id="nextM" aria-label="Mois suivant">›</button>
+              </span>
+            </div>
+            <div class="cal-grid" id="calGrid"></div>
+            <p class="cal-key"><i></i> Jours avec des créneaux libres</p>
+          </div>
+          <div class="slot-col">
+            <p class="slot-title" id="slotTitle">Sélectionnez un jour</p>
+            <div class="slots" id="slots"></div>
+          </div>
+        </div>
+
+        <!-- étape 2 : les coordonnées -->
+        <div id="stepForm" hidden>
+          <p class="chosen"><span id="chosenTxt"></span><button type="button" class="lnk" id="changeSlot">Changer</button></p>
+          <form id="devisForm" action="#" method="post" novalidate>
+            <div class="two-up">
+              <label class="f">Prénom<input name="prenom" autocomplete="given-name" required></label>
+              <label class="f">Nom<input name="nom" autocomplete="family-name" required></label>
+            </div>
+            <div class="two-up">
+              <label class="f">Téléphone<input name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="06 12 34 56 78" required></label>
+              <label class="f">E-mail<input name="mail" type="email" inputmode="email" autocomplete="email" placeholder="prenom.nom@exemple.fr" required></label>
+            </div>
+            <label class="f">Motif du chantier
+              <select name="motif" required>
+                <option value="">Choisissez une situation</option>
+                <option>Succession, après un décès</option>
+                <option>Syndrome de Diogène, accumulation importante</option>
+                <option>Déménagement ou fin de bail</option>
+                <option>Avant une vente ou une mise en location</option>
+                <option>Cave, garage, grenier, hangar</option>
+                <option>Local professionnel, cessation d'activité</option>
+                <option>Logement insalubre ou après sinistre</option>
+                <option>Autre</option>
+              </select>
+            </label>
+            <label class="f">Adresse du bien à visiter<input name="commune" autocomplete="address-level2" placeholder="Rue et commune" required></label>
+            <label class="f">Photos <small>facultatif — une vue d'ensemble par pièce aide à préparer la visite</small><input type="file" name="photos" accept="image/*" multiple></label>
+            <label class="f">Précisions <small>facultatif</small><textarea name="msg" placeholder="Ex. maison de 90 m² à vider avant la vente, clés chez le voisin"></textarea></label>
+            <button class="btn" type="submit">Confirmer le rendez-vous</button>
+            <p class="note">Vos coordonnées servent uniquement à organiser la visite. Elles ne sont transmises à personne.</p>
+            <p class="state ko" id="ko" role="alert">Il manque une information : prénom, nom, téléphone, e-mail, motif ou adresse.</p>
+          </form>
+        </div>
+
+        <!-- étape 3 : confirmation -->
+        <div id="stepDone" hidden>
+          <p class="done-mark">Rendez-vous demandé</p>
+          <p class="done-slot" id="doneSlot"></p>
+          <dl class="done-recap" id="doneRecap"></dl>
+          <p class="state ok show">Maquette : rien n'a été envoyé et aucun créneau n'est réservé. Sur le site en ligne, cette demande partirait par e-mail avec un message de confirmation. Pour une urgence, appelez le 06 65 30 14 90.</p>
+          <button type="button" class="btn btn-g" id="again">Reprendre depuis le début</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<dialog class="zoom" id="zoom"><img alt=""></dialog>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="/assets/img/85579ea595.webp" width="40" height="40" alt="">
+        <p><strong style="color:var(--bone)">Urgences Débarras Brest</strong><br>40 rue Jules Ferry, 29200 Brest<br><a href="tel:+33665301490">06 65 30 14 90</a><br><a href="mailto:info@urgencesdebarras.fr">info@urgencesdebarras.fr</a></p>
+      </div>
+      <div><h2>Prestations</h2><ul>
+        <li><a href="#situations">Débarras de maison</a></li>
+        <li><a href="#situations">Débarras d'appartement</a></li>
+        <li><a href="#situations">Cave, garage, grenier</a></li>
+        <li><a href="#situations">Local professionnel</a></li>
+        <li><a href="#prix">Tarifs</a></li></ul></div>
+      <div><h2>Informations</h2><ul>
+        <li><a href="#secteur">Secteur d'intervention</a></li>
+        <li><a href="#faq">Questions fréquentes</a></li>
+        <li><a href="#devis">Prendre rendez-vous</a></li></ul></div>
+    </div>
+    <p class="legal">Maquette de refonte proposée à Urgences Débarras Brest. Ce n'est pas le site en ligne et les formulaires n'envoient rien.<br>Mentions légales à compléter : raison sociale, SIRET et assurance de l'entreprise.</p>
+  </div>
+</footer>
+
+<div class="bar" id="bar">
+  <a class="btn btn-g" href="tel:+33665301490">Appeler</a>
+  <a class="btn" href="#devis">Rendez-vous</a>
+</div>
+
+<script>
+/* Maquette : le formulaire et l'envoi de photos restent à brancher. */
+(function(){
+  var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+  var topbar=$('#bar-top'),bar=$('#bar'),tick=false;
+  function onScroll(){
+    topbar.classList.toggle('solid',scrollY>30);
+    bar.classList.toggle('on',scrollY>innerHeight*.6);
+    tick=false;
+  }
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});onScroll();
+
+  /* Apparitions : un bloc de titre par section, et la grille de photos.
+     Opacité + translation seulement : c'est ce que le GPU fait le moins cher sur mobile. */
+  var calm=matchMedia('(prefers-reduced-motion:reduce)').matches
+        || (navigator.connection && navigator.connection.saveData)
+        || !('IntersectionObserver' in window);
+  if(calm){ document.documentElement.classList.add('no-anim'); }
+  else{
+    var narrow=matchMedia('(max-width:700px)').matches;
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return; e.target.classList.add('on'); io.unobserve(e.target)})},
+      {threshold:.15,rootMargin:'0px 0px -6% 0px'});
+    $$('[data-rv]').forEach(function(el){io.observe(el)});
+    var gio=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var figs=$$('figure',e.target);
+      figs.forEach(function(fig,i){fig.style.transitionDelay=(narrow? Math.min(i,3)*.05 : Math.min(i,11)*.045)+'s';fig.classList.add('on')});
+      gio.unobserve(e.target)})},{threshold:.08});
+    $$('.gal').forEach(function(el){gio.observe(el)});
+  }
+
+  /* Galerie */
+  var zoom=$('#zoom');
+  $$('.gal figure').forEach(function(fig){fig.addEventListener('click',function(){
+    var i=$('img',fig);$('img',zoom).src=i.src;$('img',zoom).alt=i.alt;zoom.showModal()})});
+  zoom.addEventListener('click',function(){zoom.close()});
+
+  /* Prise de rendez-vous. Maquette : les disponibilités sont simulées côté navigateur,
+     rien n'est réservé et aucune donnée ne part. En production, elles viendraient
+     de l'agenda de l'entreprise. */
+  (function(){
+    var JOURS=['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+    var MOIS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+    var today=new Date(); today.setHours(0,0,0,0);
+    var first=new Date(today); first.setDate(first.getDate()+2);   // 48 h de délai
+    var last=new Date(today);  last.setDate(last.getDate()+56);    // huit semaines
+    var shown=new Date(first.getFullYear(),first.getMonth(),1);
+    var picked=null, pickedSlot=null;
+
+    function hash(n){ n=(n^61)^(n>>>16); n=n+(n<<3); n=n^(n>>>4); n=n*0x27d4eb2d; return Math.abs(n^(n>>>15)) }
+    function key(d){ return d.getFullYear()*10000+(d.getMonth()+1)*100+d.getDate() }
+    function slotsFor(d){
+      var wd=d.getDay();
+      if(wd===0) return [];
+      if(d<first || d>last) return [];
+      var base = wd===6 ? ['09:00','10:30'] : ['08:30','10:00','11:30','14:00','15:30','17:00'];
+      var h=hash(key(d));
+      if(h%97 < 26) return [];                                   // journée déjà complète
+      return base.filter(function(t,i){ return hash(h+i*7)%10 > 2 });
+    }
+    function libelle(d){ return JOURS[(d.getDay()+6)%7]+' '+d.getDate()+' '+MOIS[d.getMonth()] }
+
+    var grid=$('#calGrid'), monthLbl=$('#calMonth'), slotsBox=$('#slots'), slotTitle=$('#slotTitle');
+
+    function draw(){
+      monthLbl.textContent=MOIS[shown.getMonth()]+' '+shown.getFullYear();
+      $('#prevM').disabled = shown.getFullYear()*12+shown.getMonth() <= first.getFullYear()*12+first.getMonth();
+      $('#nextM').disabled = shown.getFullYear()*12+shown.getMonth() >= last.getFullYear()*12+last.getMonth();
+      grid.innerHTML='';
+      ['L','M','M','J','V','S','D'].forEach(function(l,i){
+        var e=document.createElement('div'); e.className='dow'; e.textContent=l;
+        e.setAttribute('aria-label',JOURS[i]); grid.appendChild(e);
+      });
+      var start=(new Date(shown.getFullYear(),shown.getMonth(),1).getDay()+6)%7;
+      for(var i=0;i<start;i++) grid.appendChild(document.createElement('span'));
+      var days=new Date(shown.getFullYear(),shown.getMonth()+1,0).getDate();
+      for(var n=1;n<=days;n++){
+        var d=new Date(shown.getFullYear(),shown.getMonth(),n);
+        var b=document.createElement('button');
+        b.type='button'; b.className='day'; b.textContent=n;
+        if(slotsFor(d).length){
+          b.classList.add('free');
+          b.setAttribute('aria-label',libelle(d)+', créneaux disponibles');
+          if(picked && key(picked)===key(d)) b.classList.add('sel');
+          b.addEventListener('click',(function(dd){return function(){ pick(dd) }})(d));
+        }else{
+          b.disabled=true;
+        }
+        grid.appendChild(b);
+      }
+    }
+
+    function pick(d){
+      picked=d; draw();
+      slotTitle.innerHTML=libelle(d)+' <span>&middot; choisissez une heure</span>';
+      slotsBox.innerHTML='';
+      slotsFor(d).forEach(function(t){
+        var b=document.createElement('button');
+        b.type='button'; b.className='slot'; b.textContent=t.replace(':','h');
+        b.addEventListener('click',function(){ choose(d,t) });
+        slotsBox.appendChild(b);
+      });
+      if(matchMedia('(max-width:619px)').matches) slotTitle.scrollIntoView({block:'center',behavior:'smooth'});
+    }
+
+    function choose(d,t){
+      pickedSlot={d:d,t:t};
+      $('#chosenTxt').textContent=libelle(d)+' à '+t.replace(':','h');
+      $('#stepSlot').hidden=true; $('#stepForm').hidden=false;
+      $('#stepForm').scrollIntoView({block:'center',behavior:'smooth'});
+      $('[name=prenom]',$('#devisForm')).focus({preventScroll:true});
+    }
+
+    $('#prevM').addEventListener('click',function(){ shown.setMonth(shown.getMonth()-1); draw() });
+    $('#nextM').addEventListener('click',function(){ shown.setMonth(shown.getMonth()+1); draw() });
+    $('#changeSlot').addEventListener('click',function(){
+      $('#stepForm').hidden=true; $('#stepSlot').hidden=false; $('#ko').classList.remove('show');
+      $('#stepSlot').scrollIntoView({block:'center',behavior:'smooth'});
+    });
+    $('#again').addEventListener('click',function(){
+      picked=null; pickedSlot=null; $('#devisForm').reset();
+      slotsBox.innerHTML=''; slotTitle.textContent='Sélectionnez un jour'; draw();
+      $('#stepDone').hidden=true; $('#stepSlot').hidden=false;
+      $('#devis').scrollIntoView({behavior:'smooth'});
+    });
+
+    $('#devisForm').addEventListener('submit',function(e){
+      e.preventDefault();
+      var t=e.target, ok=t.prenom.value.trim() && t.nom.value.trim()
+        && t.tel.value.replace(/\D/g,'').length>=10
+        && /^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(t.mail.value.trim())
+        && t.motif.value && t.commune.value.trim();
+      $('#ko').classList.toggle('show',!ok);
+      if(!ok) return;
+      $('#doneSlot').textContent=libelle(pickedSlot.d)+' à '+pickedSlot.t.replace(':','h');
+      var recap=[['Nom',t.prenom.value.trim()+' '+t.nom.value.trim()],
+                 ['Téléphone',t.tel.value.trim()],
+                 ['E-mail',t.mail.value.trim()],
+                 ['Motif',t.motif.value],
+                 ['Adresse',t.commune.value.trim()]];
+      $('#doneRecap').innerHTML=recap.map(function(r){
+        return '<div><dt>'+r[0]+'</dt><dd>'+r[1].replace(/[<>&]/g,'')+'</dd></div>' }).join('');
+      $('#stepForm').hidden=true; $('#stepDone').hidden=false;
+      $('#stepDone').scrollIntoView({block:'center',behavior:'smooth'});
+    });
+
+    draw();
+  })();
+})();
+</script>
+</body>
+</html>

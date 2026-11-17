@@ -1,0 +1,118 @@
+{
+  "name": "Urgences Débarras Brest",
+  "site": "https://www.urgencesdebarras.fr",
+  "phone": "+33665301490",
+  "phone_display": "06 65 30 14 90",
+  "email": "info@urgencesdebarras.fr",
+  "street": "40 rue Jules Ferry",
+  "postal": "29200",
+  "city": "Brest",
+  "geo": [
+    48.400028,
+    -4.4775977
+  ],
+  "google_reviews_url": "https://www.google.com/maps/search/?api=1&query=Urgences+D%C3%A9barras+Brest",
+  "asset_version": "30",
+  "legal": {
+    "raison_sociale": "Jessie Fauveau, entrepreneur individuel (nom commercial : Urgence Débarras)",
+    "forme_juridique": "Entrepreneur individuel",
+    "capital": "",
+    "siret": "511 984 015 00053",
+    "rcs": "",
+    "directeur_publication": "Jessie Fauveau",
+    "assurance": "",
+    "hebergeur": "Cloudflare, Inc. (Cloudflare Pages)",
+    "hebergeur_adresse": "101 Townsend Street, San Francisco, CA 94107, États-Unis",
+    "tva": "FR28511984015"
+  },
+  "reviews": [
+    {
+      "author": "Laure R.",
+      "text": "Je suis très satisfaite de la prestation ! L'équipe a vidé entièrement un garage, une cave et un abri de jardin en un temps record. Travail soigné, ponctuel et professionnel. Ils ont tout emporté en laissant les endroits propres."
+    },
+    {
+      "author": "Flora",
+      "text": "Merci beaucoup pour le travail. Entreprise rapide, efficace et très sympathique !"
+    },
+    {
+      "author": "David G.",
+      "text": "J'ai fait appel à cette entreprise j'en suis très ravi devis rapide et intervention rapide prix très correct je recommande fortement je n'hésiterai pas à refaire appel à cette entreprise en cas de besoin merci à toute l'équipe"
+    }
+  ],
+  "reviews_all": [
+    {
+      "author": "Flora",
+      "text": "Merci beaucoup pour le travail. Entreprise rapide, efficace et très sympathique !"
+    },
+    {
+      "author": "Laure R.",
+      "text": "Je suis très satisfaite de la prestation ! L'équipe a vidé entièrement un garage, une cave et un abri de jardin en un temps record. Travail soigné, ponctuel et professionnel. Ils ont tout emporté en laissant les endroits propres. Je recommande cette entreprise sans hésitation. Encore merci pour tout !"
+    },
+    {
+      "author": "Erwan T.",
+      "text": "Super expérience, hyper , maison bien nettoyé e après le déménagement . Équipe très sympa"
+    },
+    {
+      "author": "CLR Couverture",
+      "text": "J'ai fait appel à cette entreprise je recommande fortement, les 5 étoiles son bien mérité."
+    },
+    {
+      "author": "Elisabeth K.",
+      "text": "Sociétè très professionnelle. Monsieur et madame Fauveau sont sympathiques et à l’écoute. Je recommande."
+    },
+    {
+      "author": "Marine G.",
+      "text": "je recommande très sérieux, travaille très propre très appliquer travaille rapide et soigner prix très abordable"
+    },
+    {
+      "author": "David G.",
+      "text": "J'ai fait appel à cette entreprise j'en suis très ravi devis rapide et intervention rapide prix très correct je recommande fortement je n'hésiterai pas à refaire appel à cette entreprise en cas de besoin merci à toute l'équipe"
+    },
+    {
+      "author": "TSI 974RUN",
+      "text": "Entreprise sérieuse, vous pouvez y aller les yeux fermés, je recommande!"
+    },
+    {
+      "author": "Loïc B.",
+      "text": "Une entreprise de qualité. Merci à Jessie et son équipe pour le débarras de mon garage et bungalow à Plomodiern. Ils ont tout vidé et laissé les lieux super propres. Je vous recommanderai."
+    },
+    {
+      "author": "Rozenn R.",
+      "text": "Ces professionnels ont débarrassé rapidement le logement. Très content de leur prestation."
+    },
+    {
+      "author": "Elodie J.",
+      "text": "Professionnel rapide et efficace"
+    },
+    {
+      "author": "Jenny S.",
+      "text": "Efficace disponible professionnel tarif raisonnable"
+    },
+    {
+      "author": "Michelle D.",
+      "text": "Super"
+    },
+    {
+      "author": "Deco Inz",
+      "text": "J’ai fait appel à urgence débarras, pour vider un local commercial. Entreprise très sérieuse ! Merci pour votre professionnalisme et votre réactivité ! Je recommande chaleureusement."
+    },
+    {
+      "author": "Hélène B.",
+      "text": "Je suis plus que ravie , Je recommande fortement urgences débarras !! Très agréable,serviable et contact très facile."
+    },
+    {
+      "author": "Maëva D.",
+      "text": "Parfait , j’ai fait appel à cette société pour un débarras D’une maison. Personne très réactive, rapide et soigneuse et prix raisonnable. Je recommande 👍"
+    }
+  ],
+  "founded": "2017-07-17",
+  "founder": "Jessie Fauveau",
+  "same_as": [
+    "https://www.google.com/maps/place//data=!4m2!3m1!1s0x4816bb11c45ae549:0x82fa4706d1560d86",
+    "https://www.facebook.com/profile.php?id=100089270954278"
+  ],
+  "google_rating": {
+    "value": "5.0",
+    "count": 14
+  }
+}

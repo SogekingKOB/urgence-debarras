@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /envoi
+Disallow: /merci/
+
+Sitemap: https://www.urgencesdebarras.fr/sitemap.xml
