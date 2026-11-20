@@ -6,8 +6,8 @@
  "priority": "1.0",
  "shot": "equipe-benne-debarras-brest",
  "shot_alt": "L'équipe d'Urgences Débarras devant une benne chargée",
- "h1": "Une maison à vider à Brest ?<br>On s'occupe de tout.",
- "sub": "Débarras et nettoyage de maisons, appartements, caves, garages et locaux à Brest et dans le Finistère. Ce qui peut être revendu est déduit de votre devis.",
+ "h1": "Une maison à vider<br>à Brest ?<br><mark><span class=\"hlb\" aria-hidden=\"true\"></span>Place nette.</mark>",
+ "sub": "On s'occupe de tout : débarras et nettoyage de maisons, appartements, caves, garages et locaux, à Brest et dans le Finistère. Ce qui peut être revendu est déduit de votre devis.",
  "faq": [
   ["La visite est-elle gratuite ?", "Oui. Nous venons voir sur place et faisons l'estimation avec vous. La visite est gratuite."],
   ["Comment est calculé le devis ?", "Le devis tient compte du débarras à réaliser et de la valeur des biens revendables, qui est déduite. Tout est détaillé sur notre page <a href=\"/comment-est-etabli-votre-devis/\">Comment est établi votre devis</a>."],
@@ -18,20 +18,12 @@
  ]
 }
 </script>
-<section class="facts" aria-label="Repères">
-  <div class="wrap">
-    <ul>
-      <li><b>Visite gratuite</b>L'estimation se fait avec vous</li>
-      <li><b>Devis ferme</b>Montant fixé d'avance</li>
-      <li><b>Vidé et nettoyé</b>Les lieux sont rendus propres</li>
-      <li><b>Dons à chaque chantier</b>Ce qui peut resservir a une seconde vie</li>
-    </ul>
-  </div>
-</section>
+<!--@ticker-->
 
 <section class="sect" id="situations">
   <div class="wrap">
     <div class="shead">
+      <p class="kicker"><i></i>Votre situation</p>
       <h2 data-rv>Partez de votre situation</h2>
       <p class="lede" data-rv>Chaque situation a ses contraintes, son calendrier et ses précautions. Choisissez la vôtre.</p>
     </div>
@@ -40,48 +32,46 @@
 </section>
 
 <section class="sect light" id="emportons">
-  <div class="wrap pair">
+  <div class="wrap bon-grid">
     <div>
-      <h2 data-rv>Ce que nous emportons</h2>
-      <!--@yn:yes-->
+      <div class="shead">
+        <p class="kicker"><i></i>Bon d'enlèvement</p>
+        <h2 data-rv>Ce que nous emportons</h2>
+        <p class="lede" data-rv>Tout, ou presque. Le reste suit des filières particulières : il suffit de nous le signaler à la visite.</p>
+      </div>
+      <div id="a-prevoir"><!--@yn:tell--></div>
     </div>
-    <div id="a-prevoir"><!--@yn:tell--></div>
+    <!--@bon-->
   </div>
 </section>
 
-<section class="sect dk">
+<section class="sect dk" id="etapes">
   <div class="wrap">
-    <div class="shead"><h2 data-rv>De votre appel au dernier coup de balai</h2></div>
+    <div class="shead"><p class="kicker"><i></i>Comment ça se passe</p><h2 data-rv>De votre appel au dernier coup de balai</h2></div>
     <!--@steps-->
   </div>
 </section>
 
-<section class="sect light" id="devis-principe">
+<section class="sect" id="devis-principe">
   <div class="wrap">
     <div class="shead">
+      <p class="kicker"><i></i>Revalorisation</p>
       <h2 data-rv>Ce qui se revend vient en déduction de votre devis</h2>
       <p class="lede" data-rv>Meubles, électroménager, outillage : ce qui peut être revendu est déduit. Selon ce que contient votre logement, le montant peut être réduit, voire nul.</p>
     </div>
-    <div class="bento">
-      <div class="b-lead dk">
-        <b>Visite et estimation gratuites</b>
-        <p>Le devis est établi avec vous, sur place, déductions comprises. Ce que nous vidons est trié puis revalorisé.</p>
-        <a class="btn" href="/comment-est-etabli-votre-devis/">Comment est établi le devis</a>
-      </div>
-      <!--@circuit:cells-->
-    </div>
-    <p class="after-rows"><a class="lnk" href="/revalorisation-dons-associations/">Découvrir notre circuit de revalorisation</a></p>
+    <!--@circuit:lead-->
+    <p class="after-rows"><a class="lnk" href="/revalorisation-dons-associations/">Découvrir notre circuit de revalorisation</a> · <a class="lnk" href="/comment-est-etabli-votre-devis/">Comment est établi le devis</a></p>
   </div>
 </section>
 
-<section class="sect" id="chantiers">
+<section class="sect light" id="chantiers">
   <div class="wrap">
-    <div class="shead"><h2 data-rv>Ces photos sont les nôtres. Aucune image de catalogue.</h2></div>
+    <div class="shead"><p class="kicker"><i></i>Réalisations</p><h2 data-rv>Ces photos sont les nôtres. Aucune image de catalogue.</h2></div>
     <!--@gallery:hangar-materiaux-encombrants,benne-bois-meubles,piece-cartons-meubles,evacuation-escalier,piece-pierre-videe,grange-videe,garage-encombre,fourgon-meubles|track-->
-    <div class="feat" id="avis">
+    <div class="feat" id="avant-apres">
       <div class="feat-txt">
         <h3 data-rv>Le même hangar, avant et après</h3>
-        <p data-rv>Un hangar vidé de tout ce qui l'encombrait, sol dégagé. Deux photos du même chantier : faites glisser le curseur pour comparer.</p>
+        <p class="lede" data-rv>Deux photos du même chantier. Faites glisser le curseur pour comparer.</p>
         <p><a class="lnk" href="/realisations/">Voir toutes nos réalisations</a></p>
       </div>
       <div><!--@beforeafter--></div>
@@ -89,9 +79,10 @@
   </div>
 </section>
 
-<section class="sect light" id="tous-les-avis">
+<section class="sect" id="avis">
   <div class="wrap">
     <div class="shead">
+      <p class="kicker"><i></i>Avis Google</p>
       <h2 data-rv>Ils nous ont fait confiance</h2>
       <p class="lede" data-rv>Les avis de nos clients sur Google, tous à cinq étoiles.</p>
     </div>
@@ -99,25 +90,28 @@
   <!--@avisall-->
 </section>
 
-<!--@callout:Une visite gratuite, chez vous-->
-
 <section class="sect light" id="secteur">
   <div class="wrap duo">
     <div class="duo-h">
+      <p class="kicker"><i></i>Zone d'intervention</p>
       <h2 data-rv>Brest, et tout le Finistère</h2>
       <p class="lede" data-rv>Basés à Brest, nous intervenons dans tout le Finistère.</p>
+      <p class="note">Autour de Brest : Guipavas, Plougastel-Daoulas, Le Relecq-Kerhuon, Guilers, Gouesnou, Plouzané.</p>
       <p class="after-rows"><a class="lnk" href="/zone-intervention/">Voir notre zone d'intervention</a></p>
     </div>
-    <div><!--@zone--></div>
+    <!--@map-->
   </div>
 </section>
 
 <section class="sect" id="faq">
   <div class="wrap duo">
     <div class="duo-h">
+      <p class="kicker"><i></i>Questions</p>
       <h2 data-rv>Vos questions avant la visite</h2>
       <p class="after-rows"><a class="lnk" href="/questions-frequentes/">Toutes les questions fréquentes</a></p>
     </div>
     <div><!--@faq--></div>
   </div>
 </section>
+
+<!--@callout-->

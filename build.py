@@ -8,6 +8,9 @@ Chaque page commence par un bloc <script type="application/json" id="meta"> … 
 (chemin, titre, description, mise en page, photo, FAQ…), suivi de son contenu HTML.
 Le contenu peut contenir des balises de composants, par exemple <!--@faq--> ou
 <!--@gallery:grange-videe,garage-encombre-->, remplacées ici par le HTML commun.
+
+Design « place nette » : blanc net, noir franc, bleu du logo, touches de jaune pour les actions.
+Les animations passent par Framer Motion (src/static/assets/js/motion.js, API DOM) pilotée par site.js.
 """
 from __future__ import annotations
 
@@ -89,9 +92,9 @@ NAV = [
     ("/revalorisation-dons-associations/", "Revalorisation"),
     ("/comment-est-etabli-votre-devis/", "Votre devis"),
     ("/realisations/", "Réalisations"),
+    ("/questions-frequentes/", "Questions"),
 ]
 MORE_NAV = [
-    ("/questions-frequentes/", "Questions fréquentes"),
     ("/zone-intervention/", "Zone d'intervention"),
     ("/guides/encombrants-brest/", "Encombrants à Brest"),
     (VISIT_URL, "Visite gratuite"),
@@ -171,8 +174,8 @@ def c_gallery(arg: str) -> str:
     if variant == "track":
         # Bande horizontale : glisser à la souris ou au doigt, flèches, barre de progression
         arrows = "".join(
-            f'<button type="button" data-dir="{d}" aria-label="{lab}">{icon("arrow")}</button>'
-            for d, lab in (("-1", "Photos précédentes"), ("1", "Photos suivantes")))
+            f'<button type="button" data-dir="{d}" aria-label="{lab}">{icon(ic)}</button>'
+            for d, lab, ic in (("-1", "Photos précédentes", "left"), ("1", "Photos suivantes", "arrow")))
         return (f'<div class="gwrap">{swipe}<div class="gal track">{"".join(figs)}</div>'
                 f'<div class="gbar"><div class="gprog" aria-hidden="true"><i></i></div><div class="arrows">{arrows}</div></div></div>')
     cls = "gal g3" if variant == "g3" else "gal"
@@ -185,7 +188,8 @@ def c_beforeafter(_: str = "") -> str:
         '<figure class="ba" style="--p:50%">'
         f'{img_tag("grange-avant", "Hangar ouvert encombré de débris, de matelas et de pneus avant l’intervention", 960, 720, cls="b")}'
         f'{img_tag("grange-apres", "Le même hangar entièrement vidé, au sol dégagé", 960, 720, cls="a")}'
-        '<span class="tag l">Avant</span><span class="tag r">Après</span><span class="knob"></span>'
+        '<span class="tag l">Avant</span><span class="tag r">Après</span>'
+        f'<span class="hd" aria-hidden="true"><span class="knob">{icon("drag")}</span></span>'
         '<input type="range" min="0" max="100" value="50" aria-label="Comparer avant et après">'
         '</figure><p class="cap">Un hangar vidé de tout ce qui l’encombrait, sol dégagé. Deux photos du même chantier : faites glisser le curseur.</p>'
     )
@@ -221,7 +225,8 @@ def c_avisall(_: str = "") -> str:
         return ""
     def card(r: dict) -> str:
         return (f'<figure class="rc"><p class="stars" aria-hidden="true">★★★★★</p>'
-                f'<blockquote>«&nbsp;{e(r["text"])}&nbsp;»</blockquote><cite>{e(r["author"])} · avis Google</cite></figure>')
+                f'<blockquote>«&nbsp;{e(r["text"])}&nbsp;»</blockquote>'
+                f'<figcaption><span class="av" aria-hidden="true">{e(r["author"][0])}</span>{e(r["author"])}</figcaption></figure>')
     # Deux rangées qui défilent en sens inverse. Chaque avis n'est écrit qu'une fois dans le HTML :
     # site.js ajoute la copie (masquée aux lecteurs d'écran) qui boucle le défilement.
     half = (len(revs) + 1) // 2
@@ -233,7 +238,7 @@ def c_avisall(_: str = "") -> str:
     rating_note = (f'<span class="mq-note">Note de {str(gr["value"]).replace(".", ",")} sur 5 · {gr["count"]} avis Google</span>'
                    if gr else "")
     return (f'<div class="marquee" role="region" aria-label="Avis Google de nos clients">{rows}</div>'
-            '<div class="mq-bar"><button type="button" class="mq-pause" aria-pressed="false">Mettre en pause</button>'
+            f'<div class="mq-bar"><button type="button" class="mq-pause" aria-pressed="false">{icon("pause")}<span>Mettre en pause</span></button>'
             f'{rating_note}<a class="lnk" href="{e(CFG["google_reviews_url"])}" rel="noopener">Lire tous les avis sur Google</a></div>')
 
 
@@ -266,14 +271,14 @@ ICONS = {
     "gem": '<path d="M6 4h12l4 5-10 12L2 9z"/><path d="M2 9h20"/>',
     "check": '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
     "phone": '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>',
-}
-SIT_ICONS = {
-    "/debarras-succession-brest/": "heart", "/debarras-ehpad-maison-de-retraite-brest/": "users",
-    "/debarras-maison-appartement-brest/": "home", "/debarras-fin-de-bail-vente-brest/": "key",
-    "/debarras-diogene-brest/": "boxes", "/debarras-insalubre-sinistre-brest/": "flame",
-    "/debarras-ferme-grange-brest/": "barn", "/debarras-cave-grenier-garage-brest/": "garage",
-    "/debarras-proprietaire-bailleur-brest/": "building", "/debarras-local-professionnel-brest/": "briefcase",
-    "/professionnels-notaires-agences-mandataires/": "doc",
+    "cal": '<path d="M8 2v4M16 2v4M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/>',
+    "mail": '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/>',
+    "pin": '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>',
+    "plus": '<path d="M12 5v14M5 12h14"/>',
+    "left": '<path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/>',
+    "drag": '<path d="M9 6l-6 6 6 6"/><path d="M15 6l6 6-6 6"/>',
+    "redo": '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/>',
+    "pause": '<path d="M8 5v14M16 5v14"/>',
 }
 
 
@@ -282,7 +287,7 @@ def icon(name: str, cls: str = "ico") -> str:
     if name not in ICONS:
         sys.exit(f"icône inconnue « {name} »")
     return (f'<svg class="{cls}" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" '
-            f'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">{ICONS[name]}</svg>')
+            f'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">{ICONS[name]}</svg>')
 
 
 def c_flow(_: str = "") -> str:
@@ -314,31 +319,39 @@ def c_situations(_: str = "") -> str:
         tabs.append(f'<button type="button" role="tab" id="tab-{key}" aria-controls="panel-{key}" '
                     f'aria-selected="{"true" if first else "false"}"{"" if first else " tabindex=\"-1\""}>{e(label)}</button>')
         cards = "".join(
-            f'<a class="scard" href="{path}">{icon(SIT_ICONS[path])}<b>{e(name)}</b><span>{e(txt)}</span></a>'
+            f'<a class="scard" href="{path}"><b>{e(name)}</b><span>{e(txt)}</span>'
+            f'<span class="go"><i>{icon("arrow")}</i>Voir la situation</span></a>'
             for path, name, txt, group in SITUATIONS if group == key)
         panels.append(f'<div class="tpanel" role="tabpanel" id="panel-{key}" aria-labelledby="tab-{key}">'
-                      f'<p class="grp">{e(label)}</p><div class="sgrid">{cards}</div></div>')
+                      f'<p class="grp">{e(label)}</p><div class="sgrid rsc" tabindex="0" '
+                      f'aria-label="{e(label)} : situations, défilement horizontal">{cards}</div></div>')
+    # Bande horizontale : glisser au doigt ou à la souris, flèches, barre de progression (site.js)
+    arrows = "".join(
+        f'<button type="button" data-dir="{d}" aria-label="{lab}">{icon(ic)}</button>'
+        for d, lab, ic in (("-1", "Situations précédentes", "left"), ("1", "Situations suivantes", "arrow")))
     return (f'<div class="tabs"><div class="tablist" role="tablist" aria-label="Votre profil">{"".join(tabs)}</div>'
-            f'{"".join(panels)}</div>'
+            f'{"".join(panels)}<div class="gbar sbar"><div class="gprog" aria-hidden="true"><i></i></div>'
+            f'<div class="arrows">{arrows}</div></div></div>'
             f'<p class="after-gal">Votre cas n\'est pas dans la liste ? <a class="lnk" href="tel:+33665301490">Appelez-nous au 06 65 30 14 90</a> '
             f'ou <a class="lnk" href="{VISIT_URL}">demandez une visite</a> : nous vous orienterons.</p>')
 
 
 def c_circuit(arg: str = "") -> str:
     assos = ", ".join(ASSOCIATIONS[:-1]) + " et " + ASSOCIATIONS[-1]
-    cols = (
-        '<div class="cols num">'
-        f'<div>{icon("tag")}<b>La revente</b><p>Les meubles et objets revendables sont estimés avec vous lors de la visite. '
-        'Leur valeur est déduite de votre devis.</p></div>'
-        f'<div>{icon("gift")}<b>Les dons</b><p>À chaque chantier, ce qui peut resservir est donné à des associations : {e(assos)}.</p></div>'
-        f'<div>{icon("recycle")}<b>Le recyclage</b><p>Ce qui ne peut être ni vendu ni donné est recyclé ou déposé en déchetterie.</p></div>'
-        '</div>'
-    )
+    # Trois cartons scotchés : revente, dons, recyclage
+    items = [("La revente", "Les meubles et objets revendables sont estimés avec vous lors de la visite. "
+                            "Leur valeur est déduite de votre devis."),
+             ("Les dons", f"À chaque chantier, ce qui peut resservir est donné à des associations : {assos}."),
+             ("Le recyclage", "Ce qui ne peut être ni vendu ni donné est recyclé ou déposé en déchetterie.")]
+    cols = ('<div class="boxes">' + "".join(
+        f'<div class="carton"><span class="tape" aria-hidden="true"></span><h3>{e(t)}</h3><p>{e(d)}</p></div>'
+        for t, d in items) + '</div>')
     if arg == "short":
         return cols
-    if arg == "cells":
-        # Les trois cellules seules, pour la grille « bento » de l'accueil
-        return cols[len('<div class="cols num">'):-len("</div>")]
+    if arg == "lead":
+        # Accueil : les cartons, puis le bandeau « visite et estimation gratuites »
+        return (cols + '<div class="lead" data-rv><b>Visite et estimation gratuites, devis ferme.</b>'
+                f'<a class="btn" href="{VISIT_URL}">Demander une visite{icon("arrow")}</a></div>')
     link = '<p class="after-rows"><a class="lnk" href="/revalorisation-dons-associations/">Découvrir notre circuit de revalorisation</a></p>'
     return cols + link
 
@@ -350,7 +363,8 @@ def c_steps(_: str = "") -> str:
         ("Devis ferme", "Vous recevez un devis dont le montant est fixé. Il reste le même après l'intervention."),
         ("On vide, on trie, on nettoie", "Tout est sorti, puis revendu, donné ou recyclé. Les lieux sont balayés et rendus propres."),
     ]
-    lis = "".join(f"<li><h3>{e(t)}</h3><p>{e(p)}</p></li>" for t, p in steps)
+    lis = "".join(f'<li><span class="n" aria-hidden="true">{i}</span><h3>{e(t)}</h3><p>{e(p)}</p></li>'
+                  for i, (t, p) in enumerate(steps, 1))
     return f'<ol class="steps">{lis}</ol>'
 
 
@@ -381,19 +395,20 @@ def c_zone(_: str = "") -> str:
 
 
 def c_callout(arg: str = "") -> str:
-    title = arg or "Parlons de votre débarras"
-    checks = ["Visite gratuite, chez vous", "Estimation faite avec vous", "Devis ferme, déductions comprises",
-              "Brest et tout le Finistère"]
-    lis = "".join(f'<li>{icon("check")}<span>{e(c)}</span></li>' for c in checks)
+    """Bandeau final bleu : grande phrase, appel, coordonnées à copier."""
+    title = arg or "On passe, on estime avec vous. Le devis est ferme."
+    addr = f'{CFG["street"]}, {CFG["postal"]} {CFG["city"]}'
+    def row(ic: str, text: str, href: str, copy: bool) -> str:
+        cp = f'<button type="button" class="cp" data-copy="{e(text)}">Copier</button>' if copy else ""
+        return f'<div class="crow">{icon(ic)}<a href="{href}">{e(text)}</a>{cp}</div>'
     return (
-        '<section class="sect callout" aria-label="Demander une visite"><div class="wrap"><div class="ctacard dk">'
-        f'<div><h2 data-rv>{e(title)}</h2>'
-        '<p class="lede" data-rv>Nous venons voir sur place et faisons l’estimation avec vous. '
-        'Vous recevez ensuite un devis ferme.</p>'
-        f'<div class="cta-pair"><a class="btn" href="{VISIT_URL}">Demander une visite gratuite</a>'
-        f'<a class="btn btn-g" href="tel:{TEL}">{e(TEL_TXT)}</a></div></div>'
-        f'<ul class="checks">{lis}</ul>'
-        '</div></div></section>'
+        '<section class="final" id="contact" aria-label="Demander une visite"><div class="wrap">'
+        f'<div class="fin-txt"><p class="kicker"><i></i>Une visite gratuite, chez vous</p><h2 class="big" data-rv>{e(title)}</h2>'
+        f'<div class="cta"><a class="btn" href="tel:{TEL}">{icon("phone")}Appeler maintenant</a>'
+        f'<a class="btn o" href="{VISIT_URL}">{icon("cal")}Demander une visite gratuite</a></div></div>'
+        f'<div class="cbox">{row("phone", TEL_TXT, "tel:" + TEL, True)}{row("mail", CFG["email"], "mailto:" + CFG["email"], True)}'
+        f'{row("pin", addr, CFG["google_reviews_url"], False)}</div>'
+        '</div></section>'
     )
 
 
@@ -404,14 +419,14 @@ def c_side(current: str) -> str:
     return (
         f'<aside><div class="side"><h2>Toutes les situations</h2><ul>{links}</ul>'
         '<div class="box"><p>Visite gratuite, estimation faite avec vous, devis ferme.</p>'
-        f'<a class="btn" href="{VISIT_URL}">Demander une visite</a>'
+        f'<a class="btn" href="{VISIT_URL}">{icon("cal")}Demander une visite</a>'
         f'<a class="lnk" href="tel:{TEL}">{e(TEL_TXT)}</a></div></div></aside>'
     )
 
 
 def c_faq(page: dict, all_pages: list[dict]) -> str:
     items = page.get("faq", [])
-    return '<div class="faq">' + faq_items(items, open_first=True) + "</div>"
+    return '<div class="faq">' + faq_items(items) + "</div>"
 
 
 def faq_items(items: list, open_first: bool = False) -> str:
@@ -498,11 +513,65 @@ def c_legal(_: str = "") -> str:
             + (f'<h2>Hébergement</h2><dl class="cols c2">{dl(host)}</dl>' if any(v for _, v in host) else ""))
 
 
+def c_ticker(_: str = "") -> str:
+    """Bandeau bleu qui défile sous le hero : nos engagements. site.js ajoute la copie qui boucle."""
+    items = ["Visite gratuite", "Devis ferme", "Vidé et nettoyé", "Dons à chaque chantier", "Brest et tout le Finistère"]
+    lis = "".join(f"<li>{e(t)}</li>" for t in items)
+    return f'<div class="ticker" role="region" aria-label="Nos engagements"><ul class="tk">{lis}</ul></div>'
+
+
+def c_bon(_: str = "") -> str:
+    """Bon d'enlèvement : les lignes se cochent l'une après l'autre (site.js), tampon « Emporté » à la fin."""
+    yes = ["Meubles, literie, armoires, électroménager", "Vaisselle, linge, livres, bibelots",
+           "Cartons, papiers, jouets, vêtements", "Outillage, matériel informatique et électrique",
+           "Encombrants, gravats, matériaux de chantier", "Déchets verts et ferraille"]
+    lis = "".join(
+        f'<li><span class="no" aria-hidden="true">{i:02d}</span><span>{e(t)}</span>'
+        '<svg class="box" viewBox="0 0 28 28" aria-hidden="true" focusable="false">'
+        '<path d="M6 14.5 L11.5 20 L22 8"/></svg></li>'
+        for i, t in enumerate(yes, 1))
+    return ('<div class="bon"><p class="bon-h"><span>Urgences Débarras · Brest</span><span>Bon d’enlèvement</span></p>'
+            f'<ul aria-label="Ce que nous emportons">{lis}</ul><span class="stmp" aria-hidden="true">Emporté</span></div>')
+
+
+MAP_DATA = json.loads((SRC / "data" / "finistere.json").read_text(encoding="utf-8"))
+# Décalage des noms de villes sur la carte (x, y, ancrage)
+MAP_LABELS = {"Brest": (-14, 6, "end"), "Landerneau": (12, 4, "start"), "Lesneven": (10, -6, "start"),
+              "Lannilis": (-8, -12, "end"), "Ploudalmézeau": (-10, -4, "end"), "Saint-Renan": (-12, -6, "end"),
+              "Plabennec": (8, -12, "start"), "Morlaix": (12, 4, "start"), "Landivisiau": (12, 4, "start"),
+              "Carhaix-Plouguer": (-12, 4, "end"), "Châteaulin": (12, 4, "start"), "Crozon": (-12, 4, "end"),
+              "Douarnenez": (-12, -6, "end"), "Quimper": (12, 4, "start"), "Pont-l'Abbé": (-12, 6, "end"),
+              "Concarneau": (0, 24, "middle"), "Quimperlé": (-12, 22, "end")}
+
+
+def c_map(_: str = "") -> str:
+    """Carte du Finistère (contours IGN via france-geojson, simplifiés) : tout le département, villes desservies en bleu."""
+    W, H = MAP_DATA["W"], MAP_DATA["H"]
+    coms = "".join(
+        f'<path class="com{" base" if n == "Brest" else ""}" d="{d}" style="transform-origin:{x}px {y}px"/>'
+        for n, d, x, y in MAP_DATA["sel"])
+    labels = []
+    for n, _d, x, y in MAP_DATA["sel"]:
+        if n not in MAP_LABELS:
+            continue
+        dx, dy, an = MAP_LABELS[n]
+        base = n == "Brest"
+        labels.append(f'<g class="lb"><circle cx="{x}" cy="{y}" r="{8 if base else 4.5}" class="dot{" base" if base else ""}"/>'
+                      f'<text x="{x + dx}" y="{y + dy}" text-anchor="{an}" class="lbl{" big" if base else ""}">'
+                      f'{"Brest, notre base" if base else e(n)}</text></g>')
+    return ('<div class="map" data-map>'
+            f'<svg viewBox="-30 -20 {W + 60} {H + 40}" role="img" aria-labelledby="map-t">'
+            '<title id="map-t">Carte du Finistère : tout le département est couvert, les principales villes desservies sont en bleu.</title>'
+            f'<path class="dep" d="{MAP_DATA["dep"]}"/>{coms}{"".join(labels)}</svg>'
+            '<p class="legend"><span><i class="k1"></i>Tout le Finistère</span><span><i class="k2"></i>Principales villes desservies</span>'
+            '<span><i class="k3"></i>Brest, notre base</span></p></div>')
+
+
 COMPONENTS = {
     "gallery": c_gallery, "flow": c_flow, "beforeafter": c_beforeafter, "reviews": c_reviews, "situations": c_situations,
     "bigquote": c_bigquote, "avisall": c_avisall,
     "circuit": c_circuit, "steps": c_steps, "yn": c_yn, "zone": c_zone, "callout": c_callout,
-    "form": c_form, "legal": c_legal,
+    "form": c_form, "legal": c_legal, "ticker": c_ticker, "bon": c_bon, "map": c_map,
 }
 COMP_RE = re.compile(r"<!--@(\w+)(?::([^>]*?))?-->")
 
@@ -523,6 +592,13 @@ def expand(body: str, page: dict, pages: list[dict]) -> str:
 
 
 # --------------------------------------------------------------------------- en-tête, pied, hero
+
+# Objets du hero d'accueil : (texte, gauche %, haut %). Ils tombent en tas puis sont évacués (site.js).
+HERO_OBJECTS = [("Armoire", 2, 8), ("Cartons", 20, 4), ("Frigo", 40, 2), ("Matelas", 58, 5), ("Vélo", 78, 3),
+                ("Bibelots", 90, 14), ("Outillage", 3, 30), ("Vaisselle", 88, 34), ("Livres", 1, 52), ("Gravats", 90, 56),
+                ("Linge", 5, 74), ("Jouets", 86, 78), ("Ferraille", 16, 92), ("Électroménager", 34, 94), ("Buffet", 58, 92),
+                ("Chaises", 74, 93), ("Bric-à-brac", 14, 16), ("Vieux journaux", 64, 18), ("Matériel de chantier", 44, 50),
+                ("Tapis", 30, 40), ("Armoire à glace", 54, 64), ("Commode", 22, 62)]
 
 def crumbs_list(p: dict) -> list[tuple[str, str]]:
     if p["path"] == "/":
@@ -548,17 +624,16 @@ def header(p: dict) -> str:
     rest = "".join(f'<li><a href="{u}"{" aria-current=\"page\"" if u == cur else ""}>{e(n)}</a></li>'
                    for u, n in NAV[1:] + MORE_NAV)
     return f'''<a class="skip" href="#contenu">Aller au contenu</a>
-<div class="prog" id="prog" aria-hidden="true"></div>
 <header class="top" id="bar-top">
   <div class="wrap">
-    <a class="brand" href="/"><img src="/assets/img/logo-urgences-debarras.webp" width="28" height="28" alt=""> <span>Urgences Débarras<i>&nbsp;Brest</i></span></a>
-    <nav aria-label="Navigation principale">{nav}</nav>
+    <a class="brand" href="/"><img src="/assets/img/logo-urgences-debarras.webp" width="34" height="34" alt=""><span>Urgences Débarras</span></a>
+    <nav class="nav" aria-label="Navigation principale">{nav}<span class="pill" aria-hidden="true"></span></nav>
     <div class="act">
-      <a class="tel" href="tel:{TEL}">{e(TEL_TXT)}</a>
-      <a class="btn only-l" href="{VISIT_URL}">Visite gratuite</a>
+      <a class="btn" href="tel:{TEL}">{icon("phone")}<span class="tel">{e(TEL_TXT)}</span><span class="sr">Appeler</span></a>
       <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Ouvrir le menu"><span></span></button>
     </div>
   </div>
+  <div class="prog" id="prog" aria-hidden="true"></div>
 </header>
 <div class="mnav" id="mnav" hidden><div class="wrap"><ul>
   <li><a href="/">Accueil</a></li>
@@ -583,29 +658,44 @@ def footer() -> str:
     ])
     year = dt.date.today().year
     assos = ", ".join(ASSOCIATIONS[:-1]) + " et " + ASSOCIATIONS[-1]
-    return f'''<footer>
+    siret = CFG["legal"].get("siret")
+    ei = f' · {e(CFG["legal"]["directeur_publication"])}, entrepreneur individuel · SIRET {e(siret)}' if siret else ""
+    return f'''<footer class="site">
   <div class="wrap">
     <div class="foot">
       <div>
-        <p><strong>{e(CFG["name"])}</strong><br>{e(CFG["street"])}, {e(CFG["postal"])} {e(CFG["city"])}<br><a href="tel:{TEL}">{e(TEL_TXT)}</a> · <a href="mailto:{e(CFG["email"])}">{e(CFG["email"])}</a></p>
+        <p class="fbrand"><img src="/assets/img/logo-urgences-debarras.webp" width="34" height="34" alt="" loading="lazy">{e(CFG["name"])}</p>
+        <p>{e(CFG["street"])}, {e(CFG["postal"])} {e(CFG["city"])}<br><a class="tel" href="tel:{TEL}">{e(TEL_TXT)}</a> · <a href="mailto:{e(CFG["email"])}">{e(CFG["email"])}</a></p>
         <p class="note">Nous donnons à chaque chantier à {e(assos)}.</p>
       </div>
       <ul>{svc}</ul>
       <ul>{guides}</ul>
     </div>
-    <p class="legal"><span>© {year} {e(CFG["name"])}</span><span>Mis à jour le {dt.date.today().strftime("%d/%m/%Y")}</span><a href="/mentions-legales/">Mentions légales</a><a href="/confidentialite/">Confidentialité</a></p>
+    <p class="legal"><span>© {year} {e(CFG["name"])}{ei}</span><span>Mis à jour le {dt.date.today().strftime("%d/%m/%Y")}</span><a href="/mentions-legales/">Mentions légales</a><a href="/confidentialite/">Confidentialité</a></p>
   </div>
 </footer>
-<div class="bar dk" id="bar">
-  <a class="btn btn-g" href="tel:{TEL}">Appeler</a>
-  <a class="btn" href="{VISIT_URL}">Visite gratuite</a>
+<div class="bar" id="bar">
+  <a class="btn" href="tel:{TEL}">{icon("phone")}Appeler</a>
+  <a class="btn o" href="{VISIT_URL}">{icon("cal")}Visite gratuite</a>
 </div>
 <dialog class="zoom" id="zoom" aria-label="Photo agrandie"><img alt=""></dialog>'''
 
 
 def title_lines(h1: str) -> str:
-    """Le titre est découpé à chaque <br> : chaque ligne monte derrière un masque (voir .hl dans site.css)."""
-    return "".join(f'<span class="hl"><b>{line}</b></span>' for line in h1.split("<br>"))
+    """Le titre est découpé à chaque <br> : une ligne par bloc (voir .hero h1 .l dans site.css)."""
+    return "".join(f'<span class="l">{line}</span>' for line in h1.split("<br>"))
+
+
+def hero_photo(p: dict, lazy: bool = False) -> str:
+    """Photo d'en-tête encadrée : version allégée « -m » sur mobile quand elle existe."""
+    shot = p.get("shot", "equipe-benne-debarras-brest")
+    alt = e(p.get("shot_alt", "Chantier de débarras Urgences Débarras"))
+    full = f"/assets/img/{shot}.webp"
+    w, h = webp_size(SRC / "static" / "assets" / "img" / f"{shot}.webp")
+    srcset = (f' srcset="/assets/img/{shot}-m.webp 600w, {full} {w}w" sizes="(min-width:960px) 420px, 92vw"'
+              if mobile_shot(shot) else "")
+    load = ' loading="lazy" decoding="async"' if lazy else ' fetchpriority="high"'
+    return f'<img src="{full}"{srcset} alt="{alt}" width="{w}" height="{h}"{load}>'
 
 
 def hero(p: dict) -> str:
@@ -613,35 +703,38 @@ def hero(p: dict) -> str:
     sub = f'<p class="sub">{p["sub"]}</p>' if p.get("sub") else ""
     h1 = title_lines(p["h1"])
     if layout == "plain":
-        return (f'<section class="phead dk"><div class="wrap txt">{c_crumbs(p)}<h1>{h1}</h1>'
+        return (f'<section class="phead"><div class="wrap txt">{c_crumbs(p)}<h1>{h1}</h1>'
                 f'{sub.replace("class=\"sub\"", "class=\"lede\"")}</div></section>')
-    shot = p.get("shot", "equipe-benne-debarras-brest")
-    shot_vars = f"--shot:url(/assets/img/{shot}.webp)"
-    if mobile_shot(shot):
-        shot_vars += f";--shot-m:url(/assets/img/{shot}-m.webp)"
-    shot_alt = e(p.get("shot_alt", "Chantier de débarras Urgences Débarras"))
     if p["path"] == "/":
-        # Accueil : photo plein écran, puis la question « quelle est votre situation ? »
-        return f'''<section class="hero home dk">
-  <div class="shot" role="img" aria-label="{shot_alt}" style="{shot_vars}"></div>
+        # Accueil : le tas d'objets se vide tout seul, puis « Place nette. » se surligne
+        objs = "".join(f'<span class="obj" style="left:{x}%;top:{y}%">{e(t)}</span>' for t, x, y in HERO_OBJECTS)
+        gr = CFG.get("google_rating")
+        rating = (f'<a class="rating" href="{e(CFG["google_reviews_url"])}" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span>'
+                  f'<b>{str(gr["value"]).replace(".", ",")} sur Google</b>Avis de nos clients</a>' if gr else "")
+        return f'''<section class="hero home" id="haut">
+  <div class="pile" aria-hidden="true">{objs}</div>
   <div class="wrap hero-in">
     <div class="txt">
+      <p class="kicker"><i></i>Débarras et nettoyage · Brest et Finistère</p>
       <h1>{h1}</h1>{sub}
-      <a class="note-rate" href="{e(CFG["google_reviews_url"])}" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span>Lire nos avis sur Google</a>
+      <div class="cta"><a class="btn" href="{VISIT_URL}">{icon("cal")}Demander une visite gratuite</a><a class="btn o" href="tel:{TEL}">{icon("phone")}<span class="tel">{e(TEL_TXT)}</span></a></div>
+      <button type="button" class="replay" hidden>{icon("redo")}Revoir le débarras</button>
     </div>
-    <div class="router">
-      <h2>Comment pouvons-nous vous aider&nbsp;?</h2>
-      <a class="choice urgent" href="tel:{TEL}"><strong>Il faut agir vite</strong><span>Appelez-nous : nous organisons la visite avec vous.</span><em>Appeler</em></a>
-      <a class="choice project" href="{VISIT_URL}"><strong>Je prépare un débarras</strong><span>Visite gratuite, estimation faite avec vous.</span><em>Visite</em></a>
+    <div class="frame">
+      <div class="ph">{hero_photo(p)}</div>
+      <p class="stamp">Visite gratuite<small>Devis ferme, établi avec vous</small></p>
+      {rating}
     </div>
   </div>
 </section>'''
-    return f'''<section class="hero sub-page dk">
-  <div class="pane"><div class="wrap txt">{c_crumbs(p)}
-    <h1>{h1}</h1>{sub}
-    <div class="cta"><a class="btn" href="{VISIT_URL}">Demander une visite gratuite</a><a class="btn btn-g" href="tel:{TEL}">{e(TEL_TXT)}</a></div>
-  </div></div>
-  <div class="shot" role="img" aria-label="{shot_alt}" style="{shot_vars}"></div>
+    return f'''<section class="hero sub-page">
+  <div class="wrap hero-in">
+    <div class="txt">{c_crumbs(p)}
+      <h1>{h1}</h1>{sub}
+      <div class="cta"><a class="btn" href="{VISIT_URL}">{icon("cal")}Demander une visite gratuite</a><a class="btn o" href="tel:{TEL}">{icon("phone")}<span class="tel">{e(TEL_TXT)}</span></a></div>
+    </div>
+    <div class="frame"><div class="ph">{hero_photo(p)}</div></div>
+  </div>
 </section>'''
 
 
@@ -727,6 +820,18 @@ def inline_css() -> str:
     return _CSS_CACHE[0]
 
 
+def webp_size(path: Path) -> tuple[int, int]:
+    """Largeur et hauteur d'une image WebP, lues dans son en-tête (VP8, VP8L ou VP8X)."""
+    d = path.read_bytes()[:30]
+    kind = d[12:16]
+    if kind == b"VP8X":
+        return 1 + int.from_bytes(d[24:27], "little"), 1 + int.from_bytes(d[27:30], "little")
+    if kind == b"VP8L":
+        b = int.from_bytes(d[21:25], "little")
+        return (b & 0x3FFF) + 1, ((b >> 14) & 0x3FFF) + 1
+    return int.from_bytes(d[26:28], "little") & 0x3FFF, int.from_bytes(d[28:30], "little") & 0x3FFF
+
+
 def mobile_shot(shot: str) -> bool:
     """Une version allégée « -m » existe-t-elle pour les petits écrans ?"""
     return (SRC / "static" / "assets" / "img" / f"{shot}-m.webp").exists()
@@ -744,14 +849,7 @@ def head(p: dict) -> str:
     # Pas d'adresse de référence pour les pages non indexées (404, merci) : elles n'ont pas d'URL publique propre
     canonical = "" if p.get("noindex") else f'<link rel="canonical" href="{url}">\n'
     og_url = "" if p.get("noindex") else f'<meta property="og:url" content="{url}">\n'
-    shot = p.get("shot", "equipe-benne-debarras-brest")
     og_img = f"{SITE}/assets/img/{p.get('og', 'equipe-benne-debarras-brest')}.webp"
-    preload = ""
-    if p.get("layout", "hero") != "plain" and mobile_shot(shot):
-        preload = (f'<link rel="preload" as="image" href="/assets/img/{shot}-m.webp" media="(max-width:899px)" fetchpriority="high">\n'
-                   f'<link rel="preload" as="image" href="/assets/img/{shot}.webp" media="(min-width:900px)" fetchpriority="high">\n')
-    elif p.get("layout", "hero") != "plain":
-        preload = f'<link rel="preload" as="image" href="/assets/img/{shot}.webp" fetchpriority="high">\n'
     return f'''<!DOCTYPE html>
 <html lang="fr" class="no-js">
 <head>
@@ -760,7 +858,7 @@ def head(p: dict) -> str:
 <title>{e(p["title"])}</title>
 <meta name="description" content="{e(p["description"])}">
 {canonical}<meta name="robots" content="{robots}">
-<meta name="theme-color" content="#f7f5f0">
+<meta name="theme-color" content="#fbfbf8">
 <meta name="geo.region" content="FR-29">
 <meta name="geo.placename" content="Brest">
 <meta property="og:type" content="website">
@@ -777,8 +875,10 @@ def head(p: dict) -> str:
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/assets/img/logo-urgences-debarras.webp" type="image/webp">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin>
-{preload}<style>{inline_css()}</style>
+<link rel="preload" href="/assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<style>{inline_css()}</style>
+<script src="/assets/js/motion.js?v={CFG["asset_version"]}" defer></script>
 <script src="/assets/js/site.js?v={CFG["asset_version"]}" defer></script>
 {schema(p)}
 </head>'''
