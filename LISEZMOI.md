@@ -1,6 +1,6 @@
 # Site Urgences Débarras Brest
 
-Site statique de 25 pages (design « sobre » : fond crème, blocs chocolat, orange pour les actions), mis en place le 16/11/2026. L'ancienne version (kraft et bleu nuit) est conservée dans `../site-avant-sobre/`.
+Site statique de 26 pages, design « place nette » (validé le 20/11/2026) : blanc net, noir franc, bleu du logo (#0b2a8c) en couleur principale, jaune (#ffd60a) pour les boutons et les petites touches. Titres en Bricolage Grotesque, texte en Instrument Sans, animations Framer Motion. Le design précédent (« sobre », crème et orange) reste dans l'historique git.
 
 ## Organisation
 
@@ -9,7 +9,8 @@ Site statique de 25 pages (design « sobre » : fond crème, blocs chocolat, ora
 | `build.py` | Générateur : assemble les pages, le menu, le pied de page, les données structurées, le sitemap |
 | `src/config.json` | Coordonnées, mentions légales, avis clients à afficher, numéro de version des fichiers |
 | `src/pages/*.html` | Contenu de chaque page (bloc `meta` en tête : titre, description, FAQ…) |
-| `src/static/` | CSS, JavaScript, police, images, `_worker.js` (formulaire), `_headers`, `_redirects`, `_routes.json` |
+| `src/static/` | CSS, JavaScript, polices, images, `_worker.js` (formulaire), `_headers`, `_redirects`, `_routes.json` |
+| `src/data/finistere.json` | Contours simplifiés du Finistère et des villes desservies, pour la carte de la zone d'intervention |
 | `dist/` | **Le site prêt à mettre en ligne** (généré, ne pas modifier à la main) |
 
 ## Régénérer le site
@@ -19,6 +20,24 @@ python -I build.py
 ```
 
 Après une modification du CSS ou du JavaScript, augmenter `asset_version` dans `src/config.json` pour que les navigateurs rechargent les fichiers.
+
+## Animations : Framer Motion
+
+`src/static/assets/js/motion.js` contient Framer Motion 11.11.17 (API DOM : `animate`, `inView`, `scroll`, `stagger`, licence MIT), servi depuis le site lui-même : la politique de sécurité (`_headers`) n'autorise aucun script externe. `site.js` s'en sert pour toutes les animations. Si le visiteur préfère moins de mouvement, ou si le fichier ne charge pas, rien n'est animé et tout le contenu reste visible.
+
+Pour régénérer `motion.js` (seulement pour changer de version) :
+
+```bash
+npm i framer-motion@11.11.17 esbuild
+echo 'export { animate, inView, scroll, stagger } from "framer-motion/dom";' > entry.mjs
+npx esbuild entry.mjs --bundle --minify --format=iife --global-name=Motion --target=es2018 --outfile=motion.js
+```
+
+Puis remettre l'en-tête de licence en première ligne.
+
+## Polices
+
+Bricolage Grotesque et Instrument Sans (licence SIL Open Font License), réduites aux caractères latins et aux graisses utilisées (`src/static/assets/fonts/`). Bricolage est figée en taille optique 72, graisses 600 à 800, chasse 75 à 90 %.
 
 ## Avant la mise en ligne
 
